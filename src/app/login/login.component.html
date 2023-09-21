@@ -1,8 +1,5 @@
-<p>login works!</p>
-<hr>
-<hr>
 <div class="container rounded-4 bg-info bg-opacity-75 border border-info border-2 p-5" style="width: 450px;">
-    <form class="form-control rounded-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form class="form-control rounded-4" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
         <header class="text-center m-5">
             Login to your account
         </header>
@@ -21,9 +18,6 @@
             <div class="form-floating is-invalid me-3">
               <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
               <label for="password">Password</label>
-            </div>
-            <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="invalid-feedback text-danger ps-1">
-              Please enter password
             </div>
         </div>
         <div class="ms-3 form-check">
