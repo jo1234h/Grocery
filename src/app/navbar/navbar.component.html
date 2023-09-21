@@ -25,7 +25,8 @@
          <li class="nav-item">
         </ul>
   
-        <button type="button" class="btn btn-outline-dark" routerLink="login">Login</button>
+        <button type="button" class="btn btn-outline-dark" *ngIf="!checkUserActive()" routerLink="login">Login</button>
+        <button type="button" class="btn btn-outline-dark" *ngIf="checkUserActive()" (click)="logout()">Logout</button>
 
           
 

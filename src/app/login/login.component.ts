@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServicesService } from '../Shared/api-services.service';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { LoginModel } from '../models/login-model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthenticatedResponse } from '../models/authenticated-response';
+import { Observable } from 'rxjs';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-login',
@@ -14,19 +14,15 @@ import { AuthenticatedResponse } from '../models/authenticated-response';
 export class LoginComponent implements OnInit{
 
 
-  loginForm!:FormGroup;
-  submittedData:any[]=[];
-  
+  loginForm!:FormGroup;  
 
   //for login
-  invalidLogin?: boolean;
-  credentials: LoginModel = {EmailId:'', Password:''};
+  invalidLogin?: Observable<boolean>;
 
   constructor(
     private router: Router, 
-    private http: HttpClient,
     private formBuilder:FormBuilder,
-    serv :ApiServicesService
+    private serv :ApiServicesService
     ) { }
 
   //
@@ -39,44 +35,18 @@ export class LoginComponent implements OnInit{
       
     });
     }
-    // onSubmit(){
-    //  if(this.loginForm.valid){
-    //   const formData=this.loginForm.value;
-    //   this.submittedData.push(formData);
-    //   this.loginForm.reset();
-    //   // console.log(this.loginForm.get('username')?.value);
-    //   // this.loginForm.reset();
-    //   alert("Login Complete")
-    //  }
-    //  else{
-    //   this.loginForm.reset();
-    //   alert("Incorrect username or password")
-    //  } 
-    // }
-
-    //for loginin;
+    
     login = ( form: FormGroup) => {
       if (form.valid) {
-        
-        this.credentials=form.value;
-        console.log(this.credentials);
-        this.http.post<AuthenticatedResponse>("http://localhost:5092/api/auth/login", this.credentials, {
-          headers: new HttpHeaders({ "Content-Type": "application/json"})
-        })
-        .subscribe({
-          next: (response: AuthenticatedResponse) => {
-            const token = response.token;
-            localStorage.setItem("jwt", token); 
-            this.invalidLogin = false; 
-            alert("Successfully Logged In")
-            this.router.navigate(["/"]);
-          },
-          error: (err: HttpErrorResponse) => {
-            this.invalidLogin = true,
-            alert("Invalid emailId or Password")
-          }
-        })
+        this.serv.authenticateLogin(form.value)
+        if(this.serv.isUserAuthenticated()){
+          this.router.navigate(['']);
+        }
       }
+      else{
+        alert("Invalid data");
+      }
+      form.reset();
     }
 
 

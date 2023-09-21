@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { ApiServicesService } from '../Shared/api-services.service';
+import { AuthenticatedResponse } from '../models/authenticated-response';
 
 @Component({
   selector: 'app-navbar',
@@ -9,31 +11,29 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class NavbarComponent implements OnInit
 {
 
-  constructor(private jwtHelper: JwtHelperService) { }
+  constructor(private jwtHelper: JwtHelperService,private serv:ApiServicesService) { }
 
   ngOnInit(): void {
 
   }
- 
-  isUserAuthenticated = (): boolean => {
 
-    const token = localStorage.getItem("jwt");
-
-    if (token && !this.jwtHelper.isTokenExpired(token)){
-
+  checkUserActive():boolean{
+    console.log(localStorage.getItem("SecurityToken"));
+    console.log("inside check")
+    if(this.serv.isUserAuthenticated()){
+      console.log('user active')
       return true;
-
     }
-    return false;
-
+    else{
+      return false;
+    }
   }
 
-
-  logOut = () => {
-
-    localStorage.removeItem("jwt");
-
+  logout(){
+    localStorage.removeItem('SecurityToken');
   }
+  
+  
 
  
 
