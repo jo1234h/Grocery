@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit{
     //for loginin;
     login = ( form: FormGroup) => {
       if (form.valid) {
+        this.credentials=form.value;
         this.http.post<AuthenticatedResponse>("http://localhost:5092/api/auth/login", this.credentials, {
           headers: new HttpHeaders({ "Content-Type": "application/json"})
         })
