@@ -17,10 +17,7 @@ export class ApiServicesService {
           headers: new HttpHeaders({ "Content-Type": "application/json"})
         }).subscribe({
           next: (response: AuthenticatedResponse) => {
-            console.log("inside login")
             const token = response.Token;
-            console.log(response.Token)
-            console.log(token);
             localStorage.setItem("SecurityToken", token); 
             alert("Login Successful");
           },

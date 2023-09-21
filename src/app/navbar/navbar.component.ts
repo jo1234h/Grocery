@@ -18,10 +18,7 @@ export class NavbarComponent implements OnInit
   }
 
   checkUserActive():boolean{
-    console.log(localStorage.getItem("SecurityToken"));
-    console.log("inside check")
     if(this.serv.isUserAuthenticated()){
-      console.log('user active')
       return true;
     }
     else{
