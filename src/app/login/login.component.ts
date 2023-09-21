@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { ApiServicesService } from '../Shared/api-services.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -7,9 +7,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   loginForm!:FormGroup;
+  submittedData:any[]=[];
   constructor (private formBuilder:FormBuilder,serv :ApiServicesService){
 
   }
@@ -17,14 +18,19 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.loginForm=this.formBuilder.group({
+      username:['',Validators.required,Validators.email],
+      password:['',Validators.required],
       
       
     });
     }
     onSubmit(){
      if(this.loginForm.valid){
-      console.log(this.loginForm.get('username')?.value);
+      const formData=this.loginForm.value;
+      this.submittedData.push(formData);
       this.loginForm.reset();
+      // console.log(this.loginForm.get('username')?.value);
+      // this.loginForm.reset();
       alert("Login Complete")
      }
      else{

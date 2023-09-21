@@ -22,9 +22,9 @@
               <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
               <label for="password">Password</label>
             </div>
-            <!-- <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="invalid-feedback text-danger ps-1">
+            <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="invalid-feedback text-danger ps-1">
               Please enter password
-            </div> -->
+            </div>
         </div>
         <div class="ms-3 form-check">
           <input type="checkbox" class="form-check-input" id="remember">
@@ -32,7 +32,9 @@
         </div>
         <button type="submit" class="btn btn-primary text-white m-2" [disabled]="loginForm.invalid" style="width: 95%;">SignIn</button>
         <div class="m-3 text-center ">
-            Forgot Password. Click <a
+          <a
+          class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="">
+            Forgot Password.</a> <br>Click <a
                 class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="">here</a> to
             reset
         </div>
