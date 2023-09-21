@@ -6,12 +6,22 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    AboutComponent,
+    ContactComponent,
+    ProductsComponent,
+    ProductdetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
