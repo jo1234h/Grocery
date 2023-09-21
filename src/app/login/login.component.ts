@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit{
 
   //for login
   invalidLogin?: boolean;
-  credentials: LoginModel = {username:'', password:''};
+  credentials: LoginModel = {EmailId:'', Password:''};
 
   constructor(
     private router: Router, 
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     this.loginForm=this.formBuilder.group({
-      username:['',[Validators.required,Validators.email]],
+      emailId:['',[Validators.required,Validators.email]],
       password:['',Validators.required],
       
       
@@ -57,7 +57,9 @@ export class LoginComponent implements OnInit{
     //for loginin;
     login = ( form: FormGroup) => {
       if (form.valid) {
+        
         this.credentials=form.value;
+        console.log(this.credentials);
         this.http.post<AuthenticatedResponse>("http://localhost:5092/api/auth/login", this.credentials, {
           headers: new HttpHeaders({ "Content-Type": "application/json"})
         })
@@ -66,11 +68,12 @@ export class LoginComponent implements OnInit{
             const token = response.token;
             localStorage.setItem("jwt", token); 
             this.invalidLogin = false; 
+            alert("Successfully Logged In")
             this.router.navigate(["/"]);
           },
           error: (err: HttpErrorResponse) => {
             this.invalidLogin = true,
-            alert("Invalid username or Password")
+            alert("Invalid emailId or Password")
           }
         })
       }
