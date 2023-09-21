@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit{
   loginForm!:FormGroup;  
 
   //for login
-  invalidLogin?: Observable<boolean>;
 
   constructor(
     private router: Router, 
