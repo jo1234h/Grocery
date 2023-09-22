@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Register } from '../models/register.model';
-import { LoginService } from '../login.service';
+import { ApiServicesService } from '../Shared/api-services.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   data = false;    
   UserForm: any;    
   message:string;    
-  constructor(private formbulider: FormBuilder,private loginService:LoginService) { }    
+  constructor(private formbulider: FormBuilder,private loginService:ApiServicesService) { }    
     
   ngOnInit() {    
     this.UserForm = this.formbulider.group({    
