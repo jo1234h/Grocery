@@ -11,10 +11,11 @@ import { AuthenticatedResponse } from '../models/authenticated-response';
 export class NavbarComponent implements OnInit
 {
 
+  username:string='user';
   constructor(private jwtHelper: JwtHelperService,private serv:ApiServicesService) { }
 
   ngOnInit(): void {
-
+    
   }
 
   checkUserActive():boolean{

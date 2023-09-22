@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Register } from '../models/register.model';
-import { ApiServicesService } from '../Shared/api-services.service';
 import { Route, Router } from '@angular/router';
+import { ApiServicesService } from '../Shared/api-services.service';
 
 @Component({
   selector: 'app-register',
