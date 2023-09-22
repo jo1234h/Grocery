@@ -13,7 +13,12 @@
                 <input type="text" class="form-control" placeholder="LastName"  formControlName="LastName">  
               </div>  
               <div class="input-group mb-4">  
-                <input type="text" class="form-control" placeholder="Gender"  formControlName="Gender">  
+                <select class="form-control" formControlName="Gender">
+                    <option value="" disabled selected hidden>Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select> 
               </div>  
               <div class="input-group mb-3">  
                 <input type="date" class="form-control" placeholder="Date of Birth"  formControlName="DateofBirth">  
