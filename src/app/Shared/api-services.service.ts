@@ -2,18 +2,25 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { AuthenticatedResponse } from '../models/authenticated-response';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Register } from '../models/register.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServicesService {
 
-  constructor(private http:HttpClient,private jwt:JwtHelperService) { }
-  private readonly aipURL='http://localhost:5092/api/auth/login';
+  private readonly apiURL='http://localhost:5092/api/auth';
+  token : string;  
+  header : any;  
 
+  constructor(private http:HttpClient,private jwt:JwtHelperService) { 
+    const headerSettings: {[name: string]: string | string[]; } = {};  
+    this.header = new HttpHeaders(headerSettings);  
+  }
+  
   //for login
   authenticateLogin(cred:Credential){
-   this.http.post<AuthenticatedResponse>(this.aipURL, cred, {
+   this.http.post<AuthenticatedResponse>(this.apiURL+'/login/', cred, {
           headers: new HttpHeaders({ "Content-Type": "application/json"})
         }).subscribe({
           next: (response: AuthenticatedResponse) => {
@@ -41,5 +48,14 @@ export class ApiServicesService {
     }
     return false;
   }
+  CreateUser(register:Register)  
+  {  
+    console.log("Success!")
+    const httpOptions = 
+    { 
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }) 
+    };  
+    return this.http.post<Register>(this.apiURL + '/register/', register, httpOptions)  
+  }  
 
 }

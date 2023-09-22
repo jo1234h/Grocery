@@ -2,7 +2,7 @@ export class Register {
     FirstName: string;      
     LastName: string;    
     Gender:string;  
-    DateofBirt:string;  
+    DateofBirth:string;  
     EmailId: string;      
     MobileNo: string;     
     Password: string;   
