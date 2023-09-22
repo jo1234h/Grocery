@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Register } from '../models/register.model';
 import { ApiServicesService } from '../Shared/api-services.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   data = false;    
   UserForm: any;    
   message:string;    
-  constructor(private formbulider: FormBuilder,private loginService:ApiServicesService) { }    
+  constructor(private formbulider: FormBuilder,private loginService:ApiServicesService,private router:Router) { }    
     
   ngOnInit() {    
     this.UserForm = this.formbulider.group({    
@@ -39,7 +40,8 @@ export class RegisterComponent implements OnInit {
        this.data = true;    
        this.message = 'Data saved Successfully';    
        this.UserForm.reset();    
-     });    
+       this.router.navigate(['login'])
+     });  
   }    
 }   
 
