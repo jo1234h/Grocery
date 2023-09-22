@@ -38,9 +38,11 @@ export class LoginComponent implements OnInit{
     login = ( form: FormGroup) => {
       if (form.valid) {
         this.serv.authenticateLogin(form.value)
-        if(this.serv.isUserAuthenticated()){
+        setTimeout(()=>{  if(this.serv.isUserAuthenticated()){
           this.router.navigate(['']);
         }
+        }, 500);
+       
       }
       else{
         alert("Invalid data");
