@@ -62,7 +62,7 @@
 
       <!-- Avatar -->
       <div class="dropdown" *ngIf="checkUserActive()">
-        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+        <a class="dropdown-toggle d-flex align-items-center" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
           <img  src="https://www.dpforwhatsapp.in/img/no-dp-images/7.webp" class="rounded-circle" height="25" loading="lazy" />
         </a> 
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
@@ -81,7 +81,7 @@
       &nbsp;
       &nbsp;
 
-      <button type="button" class="btn btn-outline-dark" *ngIf="!checkUserActive()" routerLink="register">Register</button>
+      <button type="button" class="btn btn-outline-secondary" *ngIf="!checkUserActive()" routerLink="register">Register</button>
       &nbsp;
       &nbsp;
       <button type="button" class="btn btn-outline-primary" *ngIf="!checkUserActive()" routerLink="login">Login</button>
