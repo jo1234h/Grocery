@@ -14,6 +14,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './guards/auth-guard';
 import { RegisterComponent } from './register/register.component';
+import { SubcategoryComponent } from './subcategory/subcategory.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -30,7 +31,8 @@ export function tokenGetter() {
     ProductsComponent,
     ProductdetailComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    SubcategoryComponent
   ],
   imports: [
     BrowserModule,
