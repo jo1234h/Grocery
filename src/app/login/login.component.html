@@ -1,43 +1,57 @@
 <div class="container rounded-4 p-5" style="width: 530px;">
-  
-    <form class="form-control rounded-4" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
-        <header class="text-center m-5">
-          <i class="fa fa-user large-icon"></i>
-          <br>Login to your account
-        </header>
-        <div class="input-group has-validation m-2">
-            <span class="input-group-text rounded-start text-center" style="width: 18%;"><i class="fa fa-light fa-envelope mx-auto"></i></span>
-            <div class="form-floating is-invalid me-3">
-              <input type="text" class="form-control" id="emailId" formControlName="emailId" placeholder="emailId">
-              <label for="emailId">emailId</label>
-            </div>
-            <div *ngIf="loginForm.get('emailId')?.invalid && loginForm.get('emailId')?.touched" class="invalid-feedback text-danger ps-1">
-              Please enter a valid emailId.
-            </div>
+  <form id="registrationForm" class="form-control rounded-4" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+      <header class="text-center m-5">
+        <i class="fa fa-user large-icon"></i>
+        <br>Login to your account
+      </header>
+      <div class="input-group has-validation m-2">
+          <span class="input-group-text rounded-start text-center" style="width: 18%;"><i class="fa fa-light fa-envelope mx-auto"></i></span>
+          <div class="form-floating is-invalid me-3">
+            <input type="text" class="form-control" id="emailId" formControlName="emailId" placeholder="Email">
+            <label for="emailId">Email</label>
+          </div>
+          <div *ngIf="loginForm.get('emailId')?.invalid && loginForm.get('emailId')?.touched" class="invalid-feedback text-danger ps-1">
+            Please enter a valid emailId.
+          </div>
+      </div>
+      <div class="input-group has-validation m-2">
+          <span class="input-group-text text-center" style="width: 18%;"> <i class="fa fa-light fa-key fa-rotate-180 mx-auto"></i> </span>
+          <div class="form-floating is-invalid me-3">
+            <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+            <label for="password">Password</label>
+          </div>
+      </div>
+
+      <div class="text-center">
+        Click <a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" style="text-decoration: none" href="login">here</a> to reset
+      </div>
+
+    <br/>
+
+      <div class="row mb-4">
+        <div class="col d-flex justify-content-center">
+          <!-- Checkbox -->
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="remember" checked>
+            <label class="form-check-label" for="remember">Remember me</label>
+          </div>
         </div>
-        <div class="input-group has-validation m-2">
-            <span class="input-group-text text-center" style="width: 18%;"> <i class="fa fa-light fa-key fa-rotate-180 mx-auto"></i> </span>
-            <div class="form-floating is-invalid me-3">
-              <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
-              <label for="password">Password</label>
-            </div>
+    
+        <div class="col">
+          <!-- Simple link -->
+          <a style="text-decoration: none" href="#!">Forgot password?</a>
         </div>
-        <div class="ms-3 form-check">
-          <input type="checkbox" class="form-check-input" id="remember">
-          <label class="form-check-label" for="remember">Remember me</label>
-        </div>
-        <button type="submit" class="btn btn-primary text-white m-2" [disabled]="loginForm.invalid" style="width: 95%;">SignIn</button>
-        <div class="m-3 text-center ">
-          <a
-          class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="">
-            Forgot Password.</a> <br>Click <a
-                class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="">here</a> to
-            reset
-        </div>
-        <div class="text-center mb-3">
-            Don't have an Account<br> <a
-                class="link-underline-opacity-100-hover link-offset-2 link-underline-opacity-25 link-underline-primary"
-                href="register">Sign Up</a>
-        </div>
-      </form>
+      </div>
+    
+      <!-- Submit button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="loginForm.invalid" >Sign In</button>
+      </div>
+
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p>Don't have an account? <a style="text-decoration: none" href="register">Register</a></p>
+      </div>
+
+    </form>
 </div>
