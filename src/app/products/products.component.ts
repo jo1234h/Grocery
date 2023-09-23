@@ -13,32 +13,14 @@ import { Category } from '../models/category';
 export class ProductsComponent implements OnInit{
   constructor(private router: Router,public serv:ApiServicesService){}
   pro:Product[];
-  cat:Category;
-  a:any[];
-  categoryClicked: { [key: number]: boolean } = {};
-
-
-
-ngOnInit(): void {
-   const productsByCategory = this.serv.GetProductByCategory(102)
   
+
+  ngOnInit(): void {
+  this.serv.GetProductCategories();  
 }  
-// onProductClick(Id: number){
-  
-//   // Navigate to the ProductdetailComponent with the productId parameter
-//   this.router.navigate(['subcategory',Id]);
-//  this.a = this.pro.filter(
-//     (product) => product.CategoryId === Id
-    
-//   );
-// }
-onProductClick(categoryId: number) {
-     const productsByCategory = this.serv.GetProductByCategory(this.cat.Id)
 
-  // Handle the click event here, e.g., navigate to a different page or perform an action
-  console.log(`Category with ID ${categoryId} clicked.`);
-  this.categoryClicked[categoryId] = !this.categoryClicked[categoryId];
- 
+onProductClick(categoryId: number) {
+  const productsByCategory = this.serv.GetProductByCategory(categoryId);
 }
 
 
