@@ -1,27 +1,30 @@
+
+
 <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <h2>Products Page</h2>
-        <h5>Choose your Category</h5>
+        <h2>Choose your Category</h2>
         
-        <div class="product-grid">
-            <div class="product-card" >
-                <h3>Category1</h3>
-                
-                
-            </div>
-        </div>
+       
+<div *ngIf="serv.categoryList && serv.categoryList.length > 0">
+  <h2>Categories</h2>
+  <ul>
+    <div class="product-card" *ngFor="let category of serv.categoryList">
+      
+     <h3 (click)="onProductClick(category.Id)" >{{ category.CategoryName }}</h3> 
+    </div>
+  </ul>
+</div>
+<div *ngIf="!serv.categoryList || serv.categoryList.length === 0">
+  <p>No categories available.</p>
+</div>
+
+        
         <hr class="hidden-sm hidden-md hidden-lg">
       </div>
-      <div class="col-sm-8">
-        <div class="product-grid">
-            <div class="product-card" >
-                <h3>productID</h3>
-                <h2>productName</h2>
-                <h3>Price</h3>
-                
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
+      <div class="col-sm-6"><app-subcategory></app-subcategory></div>
+      
+
+
+
+      
