@@ -11,11 +11,12 @@ import { AuthenticatedResponse } from '../models/authenticated-response';
 export class NavbarComponent implements OnInit
 {
 
-  username:string='user';
   constructor(private jwtHelper: JwtHelperService,private serv:ApiServicesService) { }
 
   ngOnInit(): void {
-    
+  }
+  getUserName(){
+    return (localStorage.getItem("UserName")!=null)?'Hello,'+localStorage.getItem("UserName"):'';
   }
 
   checkUserActive():boolean{
@@ -29,6 +30,7 @@ export class NavbarComponent implements OnInit
 
   logout(){
     localStorage.removeItem('SecurityToken');
+    localStorage.removeItem('UserName');
   }
   
   

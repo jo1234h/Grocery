@@ -33,23 +33,23 @@
           <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="about">About</a>
+          <a class="nav-link" routerLink="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="contact">Contact</a>
+          <a class="nav-link" routerLink="/contact">Contact</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="products">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  routerLink="productdetail">Product Detail</a>
+          <a class="nav-link"  routerLink="/productdetail">Product Detail</a>
         </li>
       </ul>
     </div>
 
     <!-- Right elements -->
 
-    <label  class="m-2" *ngIf="checkUserActive()">Hello, {{username}}!</label>
+    <label  class="m-2" *ngIf="checkUserActive()">{{getUserName()}}</label>
 
 
     <div class="d-flex align-items-center">

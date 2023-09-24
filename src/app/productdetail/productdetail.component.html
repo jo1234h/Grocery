@@ -1,16 +1,20 @@
 <p>productdetail works!</p>
 
 <div *ngIf="serv.productList && serv.productList.length > 0">
-    <h2>Products</h2>
+    <h2>Product Details</h2>
     <ul>
-      <div  class="product-card"  >
-        <h3>{{serv.pro[1].Id}}</h3>
-        <p>Category: {{ serv.pro[1].ProductName}}</p>
-        <!-- <p>Price: {{ product.UnitPrice }}</p>
-        <p>Description: {{ product.Description }}</p>
-        <p>UnitsInStock: {{ product.UnitsInStock }}</p>
-        <p>CreatedDate: {{ product.CreatedDate }}</p>
-         -->
+      <div  class="product-card">
+        <h3>{{serv.pro.Id}}</h3>
+        <p>Category: {{ serv.pro.ProductName}}</p>
+        <p>Price: {{ serv.pro.UnitPrice }}</p>
+        <p>Description: {{ serv.pro.Description }}</p>
+        <p>UnitsInStock: {{ serv.pro.UnitsInStock }}</p>
+        <Label>Quantity</Label>
+        <input type="number">
+        <br>
+        <button class="btn btn-primary">Add To Cart</button>
+        <button class="btn btn-primary">Buy Now</button>
+        
         
       </div>
     </ul>

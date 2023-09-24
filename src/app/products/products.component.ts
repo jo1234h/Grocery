@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Product } from '../models/product';
 import { ApiServicesService } from '../Shared/api-services.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../models/category';
 
 @Component({
@@ -11,14 +11,17 @@ import { Category } from '../models/category';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit{
-  constructor(private router: Router,public serv:ApiServicesService){}
+  constructor(private router: Router,public serv:ApiServicesService,private route:ActivatedRoute){}
   pro:Product[];
   Id:number;
   
 
   ngOnInit(): void {
+    console.log('active')
   this.serv.GetProductCategories();  
 }  
+
+
 
 onProductClick(categoryId: number) {
   const productsByCategory = this.serv.GetProductByCategory(categoryId);

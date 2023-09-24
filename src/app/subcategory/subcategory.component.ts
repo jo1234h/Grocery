@@ -19,8 +19,8 @@ ngOnInit(): void {
   
  // Get the category ID from the route parameters
  this.route.paramMap.subscribe(params => {
-  const categoryId = +params.get('Id'); // "+" is used to convert the parameter to a number
-  
+  const categoryId = +params.get('categoryId'); // "+" is used to convert the parameter to a number
+  console.log(categoryId);
   // Now, you can use the categoryId to fetch products based on it
   this.serv.GetProductByCategory(categoryId);
 });

@@ -16,12 +16,10 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'about',component:AboutComponent},
   {path:'contact',component:ContactComponent},
-  {path:'products',component:ProductsComponent,canActivate:[AuthGuard]},
   {path:'productdetail',component:ProductdetailComponent,canActivate:[AuthGuard]},
   {path:'subcategory/:Id',component:SubcategoryComponent,canActivate:[AuthGuard]},
-  {path: 'products/:categoryId', component: ProductsComponent, canActivate: [AuthGuard] },
+  {path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
   {path:'**',redirectTo:'subcategory'},
-  {path:'**',redirectTo:'productdetail'}
   
 ];
 
