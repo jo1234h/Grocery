@@ -17,8 +17,8 @@ export class CategoryComponent implements OnInit{
   ngOnInit(): void {
   this.serv.GetProductCategories();  
 }  
-navigateToPage() {
-  this.router.navigate(['/products']);
+navigateToPage(Id:number) {
+  this.router.navigate(['products/',{categoryId:Id}]);
 
 }
 }

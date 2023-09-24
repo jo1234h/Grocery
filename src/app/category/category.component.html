@@ -10,7 +10,7 @@
           <img src="assets/Images/item.jpg" alt="Category Image">
           <div class="card-body">
             <h2 style="text-align: center;">{{ category.CategoryName }}</h2>
-            <p><button (click)="navigateToPage()" class="button">View Products</button></p>
+            <p><button (click)="navigateToPage(category.Id)" class="button">View Products</button></p>
           </div>
         </div>
       </div>

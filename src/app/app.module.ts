@@ -16,6 +16,7 @@ import { AuthGuard } from './guards/auth-guard';
 import { RegisterComponent } from './register/register.component';
 import { SubcategoryComponent } from './subcategory/subcategory.component';
 import { CategoryComponent } from './category/category.component';
+import { FooterComponent } from './footer/footer.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -34,7 +35,8 @@ export function tokenGetter() {
     HomeComponent,
     RegisterComponent,
     SubcategoryComponent,
-    CategoryComponent
+    CategoryComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
