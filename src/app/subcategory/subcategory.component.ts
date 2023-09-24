@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SubcategoryComponent implements OnInit{
   constructor(private router: Router,private route: ActivatedRoute, public serv: ApiServicesService) {}
+  Id:number;
 
   
 ngOnInit(): void {
@@ -25,9 +26,10 @@ ngOnInit(): void {
 });
   
 }  
-onProductClick(productId: number){
+onProductClick(productId:number){
   
   // Navigate to the ProductdetailComponent with the productId parameter
-  this.router.navigate(['productdetail']);
+  this.router.navigate(['productdetail',{Id:productId}]);
+  const productsByname = this.serv.GetProductById(productId);
 }
 }

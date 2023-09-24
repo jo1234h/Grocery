@@ -13,6 +13,7 @@ import { Category } from '../models/category';
 export class ProductsComponent implements OnInit{
   constructor(private router: Router,public serv:ApiServicesService){}
   pro:Product[];
+  Id:number;
   
 
   ngOnInit(): void {

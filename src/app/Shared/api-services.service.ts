@@ -18,6 +18,7 @@ export class ApiServicesService {
   header: any;
   public categoryList: Category[];
   public productList: Product[];
+  public pro: Product[];
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {
     const headerSettings: { [name: string]: string | string[]; } = {};
@@ -78,7 +79,7 @@ export class ApiServicesService {
     });
   }
 
-  public pro: Product[];
+  
   //for getting different products according to the name and price
   GetProductByNamePrice(name: string, categoryId: number){
     this.http.get<Product[]>(this.apiURL+'Products/Search/'+name+'/' +categoryId).subscribe(data => {

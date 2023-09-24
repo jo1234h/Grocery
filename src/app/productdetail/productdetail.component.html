@@ -1,1 +1,21 @@
 <p>productdetail works!</p>
+
+<div *ngIf="serv.productList && serv.productList.length > 0">
+    <h2>Products</h2>
+    <ul>
+      <div  class="product-card"  >
+        <h3>{{serv.pro[1].Id}}</h3>
+        <p>Category: {{ serv.pro[1].ProductName}}</p>
+        <!-- <p>Price: {{ product.UnitPrice }}</p>
+        <p>Description: {{ product.Description }}</p>
+        <p>UnitsInStock: {{ product.UnitsInStock }}</p>
+        <p>CreatedDate: {{ product.CreatedDate }}</p>
+         -->
+        
+      </div>
+    </ul>
+  </div>
+  <div *ngIf="!serv.productList || serv.productList.length === 0">
+    <p>No products available.</p>
+  </div>
+  
