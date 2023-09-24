@@ -1,0 +1,24 @@
+<div class="heading">
+    <h1>Our Products</h1>
+    
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let category of serv.categoryList">
+        <div class="card">
+          <img src="assets/Images/item.jpg" alt="Category Image">
+          <div class="card-body">
+            <h2 style="text-align: center;">{{ category.CategoryName }}</h2>
+            <p><button (click)="navigateToPage()" class="button">View Products</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+    <div *ngIf="!serv.categoryList || serv.categoryList.length === 0">
+    <p>No categories available.</p>
+  </div>
