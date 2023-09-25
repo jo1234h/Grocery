@@ -1,4 +1,4 @@
-
+<!-- 
 
 <div class="container">
     <div class="row">
@@ -23,8 +23,28 @@
         <hr class="hidden-sm hidden-md hidden-lg">
       </div>
       <div class="col-sm-6"><app-subcategory></app-subcategory></div>
-      
+       -->
+<div class="row">
+
+      <div class="col-md-3" style="background-color: white; height: 800px;">
+        <br>
+        <h2 style="text-align: center; color:black;">Categories</h2>
+        <br>
+        <div *ngIf="serv.categoryList && serv.categoryList.length > 0">
+          <ul>
+            <div class="product-card" (click)=onProductClick(category.Id) *ngFor="let category of serv.categoryList">
+              
+             <h3  style="text-align: left;font-family:sans-serif ;">{{ category.CategoryName }}</h3> 
+            </div>
+          </ul>
+        </div>
+        <div *ngIf="!serv.categoryList || serv.categoryList.length === 0">
+          <p>No categories available.</p>
+        </div>
+        </div>
 
 
-
-      
+        <div class="col-md-9">
+<app-subcategory></app-subcategory>
+        </div>
+      </div>
