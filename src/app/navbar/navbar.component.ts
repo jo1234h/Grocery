@@ -19,6 +19,14 @@ export class NavbarComponent implements OnInit
     return (localStorage.getItem("UserName")!=null)?'Hello,'+localStorage.getItem("UserName"):'';
   }
 
+  getEmailId(){
+    return (localStorage.getItem("EmailId")!=null)?'Email Addres :'+localStorage.getItem("EmailId"):'';
+  }
+  getPhone(){
+    return (localStorage.getItem("Phone")!=null)?'Phone Number :'+localStorage.getItem("Phone"):'';
+  }
+  
+
   checkUserActive():boolean{
     if(this.serv.isUserAuthenticated()){
       return true;
@@ -31,6 +39,8 @@ export class NavbarComponent implements OnInit
   logout(){
     localStorage.removeItem('SecurityToken');
     localStorage.removeItem('UserName');
+    localStorage.removeItem('EmailId');
+    localStorage.removeItem('Phone');
   }
   
   
