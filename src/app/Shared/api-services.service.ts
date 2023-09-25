@@ -6,6 +6,7 @@ import { Register } from '../models/register.model';
 import { Category } from '../models/category';
 import { Product } from '../models/product';
 import { ProductdetailComponent } from '../productdetail/productdetail.component';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -17,15 +18,17 @@ export class ApiServicesService {
   token: string;
   header: any;
   public categoryList: Category[];
+  
   public productList: Product[];
   public pro: Product;
-  public productbynameandprice :Product[]
+  public productbynameandprice :Product[];
+  
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {
     const headerSettings: { [name: string]: string | string[]; } = {};
     this.header = new HttpHeaders(headerSettings);
   }
-
+ 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -101,8 +104,8 @@ export class ApiServicesService {
   }
 
   //for adding category
-  AddCategory(category:Category){
-    this.http.post<Category>(this.apiURL+'Products', category, this.httpOptions);
+  AddCategory(category:Category):Observable<any>{
+    return this.http.post<Category>(this.apiURL+'Products', category, this.httpOptions);
   }
 
   //for adding products
@@ -120,6 +123,19 @@ export class ApiServicesService {
     this.http.get<Product>(this.apiURL+'Products/'+id).subscribe(data=>{
       this.pro=data;
     })
+  }
+  //for delete category
+  deleteCategory(categoryId: number) {
+    const url = `${this.apiURL}Categories/${categoryId}`;
+    
+    return this.http.delete(url, this.httpOptions);
+  }
+  //for update category
+  updateCategory(categoryId:number):Observable<any>{
+    const url = `${this.apiURL}Categories/${categoryId}`;
+    return this.http.put(url, this.httpOptions);
+
+
   }
 
 }
