@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit
   ngOnInit(): void {
   }
   getUserName(){
-    return (localStorage.getItem("UserName")!=null)?'Hello,'+localStorage.getItem("UserName"):'';
+    return (localStorage.getItem("UserName")!=null)?localStorage.getItem("UserName"):'';
   }
 
   getEmailId(){

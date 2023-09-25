@@ -5,7 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Register } from '../models/register.model';
 import { Category } from '../models/category';
 import { Product } from '../models/product';
-import { ProductdetailComponent } from '../productdetail/productdetail.component';
+import { OrderSummary } from '../models/order-summary';
 
 
 @Injectable({
@@ -22,7 +22,8 @@ export class ApiServicesService {
   public pro: Product;
   public productbynameandprice :Product[];
 
-  public singleData:Product=new Product();
+  public singleData:Product=new Product();;
+  public orderedProducts:OrderSummary[];
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {
     const headerSettings: { [name: string]: string | string[]; } = {};
@@ -122,10 +123,6 @@ export class ApiServicesService {
     this.http.get<Product>(this.apiURL+'Products/'+id).subscribe(data=>{
       this.pro=data;
     })
-  }
-
-  deleteProduct(id:number){
-    return this.http.delete<Product>(this.apiURL+'Products/'+id);
   }
 
 }
