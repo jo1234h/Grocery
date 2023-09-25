@@ -1,14 +1,14 @@
-<div class="container m-3" *ngIf="serv.productList && serv.productList.length > 0">
-  <!-- <div class="container mx-auto"> -->
+<div class="container m-3 " style="min-width: 500;max-width: 1000; display: block;" *ngIf="serv.productList && serv.productList.length > 0">
+  <!-- <div class="container" style="min-width: 500;max-width: 1000; display: block;"> -->
     
       <div class="card">
         <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 minmax-width" >
           <img src="assets/Images/item.jpg" alt="Category Image">
           <br>
           
         </div>
-        <div class="col-md-6 p-4">
+        <div class="col-md-6 p-4 minmax-width">
           <div class="card p-3 text-left" style="height: 100%;width: auto;">
             <header class="card-header">
             <h2>{{serv.pro.ProductName}}</h2>
@@ -20,7 +20,7 @@
             <p>Quantity in Stock: {{ serv.pro.UnitsInStock }}</p>
           <span>
             <Label class="m-2">Quantity</Label>
-            <input type="number" value="1">
+            <input type="number" [(ngModel)]="qty" min="1" max="{{serv.pro.UnitsInStock}}">
           </span>
           <hr>
           Offers:
@@ -42,7 +42,7 @@
           </div>
           <div class="card-footer mb-0">
             <span>
-              <button class="btn btn-primary me-2">Add To Cart</button>
+              <button class="btn btn-primary me-2" (click)="addToCart(serv.pro.Id,serv.pro.ProductName,serv.pro.UnitPrice)">Add To Cart</button>
               <button class="btn btn-primary ms-2">Buy Now</button>
             </span>
           </div>

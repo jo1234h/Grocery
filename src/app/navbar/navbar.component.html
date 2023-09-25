@@ -3,15 +3,8 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
 
@@ -19,18 +12,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0" href="#">
-        <img
-          src="assets\Images\groc.png"
-          height="30"
-          width="30"
-          alt="MDB Logo"
-          loading="lazy"
-        />
+        <img src="assets\Images\groc.png" height="30" width="30" alt="MDB Logo" loading="lazy" />
       </a>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-underline">
         <li class="nav-item" [ngClass]="{'active':isActive('')}">
-          <a class="nav-link"  routerLink="/">Home</a>
+          <a class="nav-link" routerLink="/">Home</a>
         </li>
         <li class="nav-item" [ngClass]="{'active':isActive('about')}">
           <a class="nav-link" routerLink="/about">About</a>
@@ -43,16 +30,17 @@
 
     <!-- Right elements -->
 
-    <label  class="m-2" *ngIf="checkUserActive()">{{getUserName()}}</label>
 
 
     <div class="d-flex align-items-center">
-      <a class="link-secondary me-3" href="#"  *ngIf="checkUserActive()">
+      <a class="link-secondary me-3" data-bs-toggle="modal" data-bs-target="#cart" (click)="getOrderList()"
+        *ngIf="checkUserActive()">
         <i class="fa fa-shopping-cart"></i>
         <span class="badge rounded-pill badge-notification bg-danger">1</span>
       </a>
 
-      <button type="button" *ngIf="checkUserActive()" class="btn btn-dark launch" style="border-radius: 50%;" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i class="fa fa-user"></i></button>
+      <button type="button" *ngIf="checkUserActive()" class="btn btn-dark launch" style="border-radius: 50%;"
+        data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i class="fa fa-user"></i></button>{{getUserName()}}
 
       <!-- Avatar -->
       <!-- <div class="dropdown" *ngIf="checkUserActive()">
@@ -71,7 +59,8 @@
           </li>
         </ul>
       </div> -->
-      <button type="button" class="btn btn-outline-secondary" *ngIf="!checkUserActive()" routerLink="register">Register</button>
+      <button type="button" class="btn btn-outline-secondary" *ngIf="!checkUserActive()"
+        routerLink="register">Register</button>
       &nbsp;
       &nbsp;
       <button type="button" class="btn btn-outline-primary" *ngIf="!checkUserActive()" routerLink="login">Login</button>
@@ -81,42 +70,112 @@
 
 
 
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-body bg-light">
-                <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body bg-light">
+        <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
 
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="text-center mt-2">
-                       <img src="https://www.dpforwhatsapp.in/img/no-dp-images/7.webp" width="200">
-                    </div>
-                  </div>
-
-
-                    <div class="col-md-6">
-                      <div class="text-dark mt-5">
-                         <h1 class="mb-0">{{getUserName()}}</h1>
-                            <div class="mt-4">
-                              <span class="intro-1">{{getEmailId()}}</span>                             
-                            </div>
-                            <div class="mt-4">
-                                <span class="intro-1">{{getPhone()}}</span>                             
-                            </div>
-                            <div class="mt-4 mb-5">
-                              <button type="button" class="btn btn-danger btn-outline-danger text-white close" data-bs-dismiss="modal" (click)="logout()">Logout</button>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="text-center mt-2">
+              <img src="https://www.dpforwhatsapp.in/img/no-dp-images/7.webp" width="200">
             </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="text-dark mt-5">
+              <h1 class="mb-0">{{getUserName()}}</h1>
+              <div class="mt-4">
+                <span class="intro-1">{{getEmailId()}}</span>
+              </div>
+              <div class="mt-4">
+                <span class="intro-1">{{getPhone()}}</span>
+              </div>
+              <div class="mt-4 mb-5">
+                <button type="button" class="btn btn-danger btn-outline-danger text-white close" data-bs-dismiss="modal"
+                  (click)="logout()">Logout</button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 
 
+<div class="modal fade" id="cart" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body ">
+        <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+        <div class="px-2 py-1">
+
+          <h5 class="text-uppercase">{{getUserName()}}</h5>
+          <div class="mt-2">
+            <span class="intro-1">{{getEmailId()}}</span>
+          </div>
+          <div class="mb-2">
+            <span class="intro-1">{{getPhone()}}</span>
+          </div>
+
+          <span class="theme-color">Order Summary</span>
+          <div class="mb-3">
+            <hr class="new1">
+          </div>
+          <div *ngIf="getOrderList() && getOrderList().length > 0">
+            <div class="container-fluid" style="height: 300px;overflow-y: auto; background-color: aqua;">
+              <ul class="p-0" *ngFor="let item of getOrderList()">
+                <div class="card m-1">
+                  <div class="row align-items-center">
+                    <div class="col-md-3">
+                      <img src="assets/Images/item.jpg" alt="Product Image" loading="lazy" height="100px" width="100px">
+                    </div>
+                    <div class="col-md-6 mt-2">
+                      
+                        <h5 class="m-0 p-0">{{item.productName}}</h5>
+                        Qty:{{item.quantity}}
+                        <br>
+                        Price:Rs.{{item.pricePerProduct}}
+                      
+                    </div>
+                    <div class="col-md-3 jalign-self-center">
+                      <button class="btn" (click)="removeItem(item.productId)"><i class="fa fa-trash fa-solid fa-2xl"
+                          style="color: #ff0000;"></i></button>
+                    </div>
+                  </div>
+                </div>
+
+              </ul>
+              
+            </div>
+            <div class="d-flex justify-content-between">
+              <small>Delivery charges</small>
+              <small>Rs.45.00</small>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <span class="font-weight-bold">Total</span>
+              <span class="font-weight-bold theme-color">Rs.{{calculateTotal()}}</span>
+
+            </div>
+            <div class="text-center mt-5">
+              <button class="btn btn-primary">Place your order</button>
+            </div>
+          </div>
+
+          <div *ngIf="!getOrderList() || getOrderList().length === 0">
+            <h3 class="text-center">Your Cart is Empty</h3>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -135,7 +194,10 @@
 
 
 
-<!-- 
+
+
+
+  <!-- 
 
 <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary ">
     <div class="container-fluid">

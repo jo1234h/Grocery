@@ -3,6 +3,7 @@ import { ApiServicesService } from '../Shared/api-services.service';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { Product } from '../models/product';
+import { OrderSummary } from '../models/order-summary';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -14,6 +15,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductdetailComponent implements OnInit{
   constructor(private router: Router,private route: ActivatedRoute,public serv:ApiServicesService){}
   pro:Product[]=[];
+  item:any={};
+  qty:number=1;
   
   ngOnInit(): void {
     // Get the category ID from the route parameters
@@ -26,6 +29,15 @@ export class ProductdetailComponent implements OnInit{
 });
     
     
+  }
+
+  addToCart(id:number,name:string,price:number){
+
+    this.item.productId=id;
+    this.item.productName=name;
+    this.item.quantity=this.qty;
+    this.item.pricePerProduct=price*this.qty;
+    this.serv.orderedProducts.push(this.item);
   }
 
 }
