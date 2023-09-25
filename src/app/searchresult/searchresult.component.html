@@ -1,0 +1,14 @@
+<div *ngIf="serv.productbynameandprice && serv.productbynameandprice.length > 0">
+    <h2>Products</h2>
+    <ul>
+      <div (click)="onProductClick(product.Id)" class="product-card"  *ngFor="let product of serv.productbynameandprice">
+        <h3>{{ product.ProductName }}</h3>
+        <p>Category: {{ product.CategoryId }}</p>
+        <p>Price: {{ product.UnitPrice }}</p>
+      </div>
+    </ul>
+</div>
+
+<div *ngIf="!serv.productbynameandprice || serv.productbynameandprice.length === 0">
+    <p>No products available.</p>
+</div>

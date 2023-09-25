@@ -70,7 +70,7 @@ export class ApiServicesService {
 
   //for geting product categories
   GetProductCategories() {
-    this.http.get<Category[]>(this.apiURL + 'Categories').subscribe(data => {
+      this.http.get<Category[]>(this.apiURL + 'Categories').subscribe(data => {
       this.categoryList = data;
     });
   }

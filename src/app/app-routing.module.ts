@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './guards/auth-guard';
 import { RegisterComponent } from './register/register.component';
 import { SubcategoryComponent } from './subcategory/subcategory.component';
+import { SearchresultComponent } from './searchresult/searchresult.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'productdetail',component:ProductdetailComponent,canActivate:[AuthGuard]},
   {path:'subcategory/:Id',component:SubcategoryComponent,canActivate:[AuthGuard]},
   {path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
+  {path: 'search', component: SearchresultComponent, canActivate: [AuthGuard] },
   {path:'**',redirectTo:'subcategory'},
   
 ];

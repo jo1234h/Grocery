@@ -16,10 +16,11 @@ export class ProductsComponent implements OnInit{
   Id:number;
   
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
     console.log('active')
-  this.serv.GetProductCategories();  
-}  
+    this.serv.GetProductCategories();  
+  }  
 
 
 

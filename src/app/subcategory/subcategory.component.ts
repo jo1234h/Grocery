@@ -12,8 +12,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SubcategoryComponent implements OnInit{
   constructor(private router: Router,private route: ActivatedRoute, public serv: ApiServicesService) {}
-  Id:number;
-
   
 ngOnInit(): void {
   

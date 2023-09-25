@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiServicesService } from '../Shared/api-services.service';
 import { Product } from '../models/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,9 @@ import { Product } from '../models/product';
 export class HeaderComponent {
   name: string = '';
   price: number;
-  constructor(public serv :ApiServicesService ) {}
+  constructor(private router: Router,public serv :ApiServicesService) {}
 
   search() {
-    this.serv.GetProductByNamePrice(this.name, this.price);
+    this.router.navigate(['products/',{productName:this.name,price:this.price}]);
 }
 }
