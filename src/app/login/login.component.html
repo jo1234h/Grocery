@@ -22,13 +22,22 @@
           </div>
       </div>
 
-    <br/>
-      <!-- Submit button -->
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="loginForm.invalid" >Sign In</button>
-      </div>
+    <!-- Submit button -->
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary btn-block mb-3" style="width: 40%; height: 45px;" [disabled]="loginForm.invalid" >Sign In</button>
+    </div>
 
+    <footer>
+      <div class="col justify-content-center text-center">
+        <!-- Password reset -->
+        <a style="text-decoration: none" href="#!">Forgot password?</a>
+      </div>
       
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p>Don't have an account? <a style="text-decoration: none" href="register">Register</a></p>
+      </div>
+    </footer>
 
     </form>
 </div>
