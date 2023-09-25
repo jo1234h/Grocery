@@ -58,7 +58,7 @@
         <span class="badge rounded-pill badge-notification bg-danger">1</span>
       </a>
 
-      
+      <button type="button" *ngIf="checkUserActive()" class="btn btn-dark launch" style="border-radius: 50%;" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i class="fa fa-user"></i></button>
 
       <!-- Avatar -->
       <!-- <div class="dropdown" *ngIf="checkUserActive()">
@@ -77,16 +77,12 @@
           </li>
         </ul>
       </div> -->
-
-      &nbsp;
-      &nbsp;
-
       <button type="button" class="btn btn-outline-secondary" *ngIf="!checkUserActive()" routerLink="register">Register</button>
       &nbsp;
       &nbsp;
       <button type="button" class="btn btn-outline-primary" *ngIf="!checkUserActive()" routerLink="login">Login</button>
         
-      <button type="button" class="btn btn-outline-dark" *ngIf="checkUserActive()" (click)="logout()">Logout</button>
+      
 
 
     </div>
@@ -95,13 +91,39 @@
 
 
 
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body bg-light">
+                <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="text-center mt-2">
+                       <img src="https://www.dpforwhatsapp.in/img/no-dp-images/7.webp" width="200">
+                    </div>
+                  </div>
 
 
-
-
-
-
-
+                    <div class="col-md-6">
+                      <div class="text-dark mt-5">
+                         <h1 class="mb-0">{{getUserName()}}</h1>
+                            <div class="mt-4">
+                              <span class="intro-1">{{getEmailId()}}</span>                             
+                            </div>
+                            <div class="mt-4">
+                                <span class="intro-1">{{getPhone()}}</span>                             
+                            </div>
+                            <div class="mt-4 mb-5">
+                              <button type="button" class="btn btn-danger btn-outline-danger text-white close" data-bs-dismiss="modal" (click)="logout()">Logout</button>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

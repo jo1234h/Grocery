@@ -19,6 +19,7 @@ export class ApiServicesService {
   public categoryList: Category[];
   public productList: Product[];
   public pro: Product;
+  public productbynameandprice :Product[]
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {
     const headerSettings: { [name: string]: string | string[]; } = {};
@@ -35,10 +36,10 @@ export class ApiServicesService {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     }).subscribe({
       next: (response: AuthenticatedResponse) => {
-        const token = response.Token;
-        const username=response.UserName;
-        localStorage.setItem("SecurityToken", token);
-        localStorage.setItem("UserName", username);
+        localStorage.setItem("SecurityToken", response.Token);
+        localStorage.setItem("UserName", response.UserName);
+        localStorage.setItem("EmailId",response.EmailId);
+        localStorage.setItem("Phone",response.Phone);
         alert("Login Successful");
       },
       error: (error: HttpErrorResponse) => {
@@ -84,8 +85,8 @@ export class ApiServicesService {
   
   //for getting different products according to the name and price
   GetProductByNamePrice(name: string, categoryId: number){
-    this.http.get<Product>(this.apiURL+'Products/Search/'+name+'/' +categoryId).subscribe(data => {
-      this.pro=data;
+    this.http.get<Product[]>(this.apiURL+'Products/Search/'+name+'/' +categoryId).subscribe(data => {
+      this.productbynameandprice=data;
     });
   }
 
