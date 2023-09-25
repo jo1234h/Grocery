@@ -1,0 +1,30 @@
+
+.card {
+    
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+  .heading{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px auto;
+}
+.heading h1{
+    font-size: 50px;
+    color: #000;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.heading p{
+    font-size: 21px;
+    color: #666;
+    margin-bottom: 35px;
+
+
+}

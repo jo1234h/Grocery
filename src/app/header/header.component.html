@@ -1,14 +1,13 @@
 <header>
-    <div class="d-flex justify-content-end align-items-center">
-      <form class="form-inline">
-        <div class="input-group">
-          <input type="number" class="form-control rounded m-2"  placeholder="Price" [(ngModel)]="price">
-          <input type="text" class="form-control rounded m-2 " placeholder="Name" [(ngModel)]="name">
-          <div class="input-group-append">
-            <button class="btn btn-primary m-2" (click)="search()">Search  <i class="fa-solid fa-magnifying-glass"></i></button>
-          </div>
+  <div class="d-flex justify-content-end align-items-center">
+    <form class="form-inline" [formGroup]="searchForm" (ngSubmit)="onFormSubmit()">
+      <div class="input-group">
+        <input type="number" class="form-control rounded m-2" placeholder="Price" formControlName="price">
+        <input type="text" class="form-control rounded m-2 " placeholder="Name" formControlName="productName">
+        <div class="input-group-append">
+          <button class="btn btn-primary m-2" type="submit">Search <i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-      </form>
-    </div>
-  </header>
-  
+      </div>
+    </form>
+  </div>
+</header>

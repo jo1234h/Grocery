@@ -42,6 +42,7 @@ export class NavbarComponent implements OnInit
     localStorage.removeItem('UserName');
     localStorage.removeItem('EmailId');
     localStorage.removeItem('Phone');
+    this.router.navigate(['/']);
   }
   
   isActive(route:string){

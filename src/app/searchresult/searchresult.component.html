@@ -1,14 +1,22 @@
 <div *ngIf="serv.productbynameandprice && serv.productbynameandprice.length > 0">
-    <h2>Products</h2>
-    <ul>
-      <div (click)="onProductClick(product.Id)" class="product-card"  *ngFor="let product of serv.productbynameandprice">
-        <h3>{{ product.ProductName }}</h3>
-        <p>Category: {{ product.CategoryId }}</p>
-        <p>Price: {{ product.UnitPrice }}</p>
-      </div>
-    </ul>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" *ngFor="let product of serv.productbynameandprice">
+                <div class="card" (click)="onProductClick(product.Id)">
+                    <img src="assets/Images/item.jpg" alt="Category Image">
+                    <div class="card-body">
+                        <h2 style="text-align: center;">{{ product.ProductName }}</h2>
+                        <p style="text-align: center;"><i
+                                class="fa fa-light fa-indian-rupee-sign"></i>{{product.UnitPrice}}</p>
 
-<div *ngIf="!serv.productbynameandprice || serv.productbynameandprice.length === 0">
-    <p>No products available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div *ngIf="!serv.productbynameandprice && serv.productbynameandprice.length > 0">
+    <h3>No products available.</h3>
 </div>
