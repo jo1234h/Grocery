@@ -7,7 +7,7 @@
                         <div class="row g-0">
 
                             <div class="col-lg-8">
-                                <table class="table table-hover table-secondary">
+                                <table class="table table-hover table-dark table-borderless">
                                     <thead>
                                         <tr>
                                             <th>Product Id</th>
@@ -16,19 +16,25 @@
                                             <th>Units In Stock</th>
                                             <th>Discontinued</th>
                                             <th>Category</th>
-                                            <th></th>
+                                            <th class="text-warning">Edit</th>
+                                            <th class="text-danger">Delete</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let p of serv.allProducts">
-                                            <td (click)="fillForm(p)">{{p.Id}}</td>
-                                            <td (click)="fillForm(p)">{{p.ProductName}}</td>
-                                            <td (click)="fillForm(p)">{{p.UnitPrice}}</td>
-                                            <td (click)="fillForm(p)">{{p.UnitsInStock}}</td>
-                                            <td (click)="fillForm(p)">{{p.Discontinued}}</td>
-                                            <td (click)="fillForm(p)">{{p.CategoryId}}</td>
-                                            <td><i class="fa fa-trash bg-danger text-white"
-                                                    (click)="delProduct(p.Id)"></i></td>
+                                            <td >{{p.ProductName}}</td>
+                                            <td >{{p.UnitPrice}}</td>
+                                            <td >{{p.UnitsInStock}}</td>
+                                            <td >{{p.CategoryId}}</td>
+                                            <td >{{p.Discontinued}}</td>
+                                            <td >{{p.Id}}</td>
+                                         
+                                            <td><i class="fas fa-edit bg-warning text-black" (click)="fillForm(p)"></i></td>
+
+                                            <td><i class="fa fa-trash bg-danger text-black"
+                                                (click)="delProduct(p.Id)"></i></td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -101,10 +107,10 @@
                                                  <label class="form-label" for="Discontinued">Discontinued</label>
                                             </div>
                                         </div>
-
-
-                                        <button type="submit" class="btn btn-light btn-lg"
+                                        <button type="submit" class="btn btn-danger me-2"
                                             data-mdb-ripple-color="dark">Add/Update</button>
+                                            <button type="reset" class="btn btn-primary"
+                                            data-mdb-ripple-color="dark">Reset</button>   
                                     </form>
                                 </div>
                             </div>

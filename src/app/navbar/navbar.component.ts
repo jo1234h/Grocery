@@ -67,6 +67,12 @@ export class NavbarComponent implements OnInit
     this.serv.orderedProducts=this.serv.orderedProducts.filter(item=>item.productId!==id);
   }
  
+  PlaceOrder() 
+{
+  this.serv.orderedProducts=[];
+ alert('Order Successfuly Placed')
+}
+
 
 }
 

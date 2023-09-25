@@ -24,7 +24,7 @@ export class ApiServicesService {
 
   public singleData:Product=new Product();
 
-  public orderedProducts:OrderSummary[];
+  public orderedProducts:OrderSummary[]=[];
 
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {
