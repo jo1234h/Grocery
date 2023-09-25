@@ -22,8 +22,10 @@ export class ApiServicesService {
   public pro: Product;
   public productbynameandprice :Product[];
 
-  public singleData:Product=new Product();;
+  public singleData:Product=new Product();
+
   public orderedProducts:OrderSummary[];
+
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {
     const headerSettings: { [name: string]: string | string[]; } = {};
@@ -124,6 +126,11 @@ export class ApiServicesService {
       this.pro=data;
     })
   }
+
+  deleteProduct(id:number){
+    return this.http.delete<Product>(this.apiURL+'Products/'+id);
+  }
+
 
 }
 

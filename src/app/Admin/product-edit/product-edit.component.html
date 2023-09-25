@@ -2,11 +2,12 @@
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12">
-                <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                <div class="card card-registration card-registration-2" style="border-radius: 15px;" >
                     <div class="card-body p-0">
                         <div class="row g-0">
+
                             <div class="col-lg-8">
-                                <table class="table table-hover">
+                                <table class="table table-hover table-secondary">
                                     <thead>
                                         <tr>
                                             <th>Product Id</th>
@@ -15,6 +16,7 @@
                                             <th>Units In Stock</th>
                                             <th>Discontinued</th>
                                             <th>Category</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -82,6 +84,14 @@
                                             </div>
                                         </div>
 
+                                        <div class="mb-4 pb-2">
+                                            <div class="form-outline form-white">
+                                                <input type="text" id="CategoryId" name="CategoryId" #CategoryId="ngModel"
+                                                    [(ngModel)]="serv.singleData.CategoryId"
+                                                    class="form-control form-control-lg" />
+                                                <label class="form-label" for="CategoryId">CategoryId</label>
+                                            </div>
+                                        </div>
 
                                         <div class="mb-4 pb-2">
                                             <div class="form-outline form-white">
@@ -94,7 +104,7 @@
 
 
                                         <button type="submit" class="btn btn-light btn-lg"
-                                            data-mdb-ripple-color="dark">Register</button>
+                                            data-mdb-ripple-color="dark">Add/Update</button>
                                     </form>
                                 </div>
                             </div>
