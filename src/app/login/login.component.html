@@ -22,29 +22,20 @@
           </div>
       </div>
 
-    <br/>
+    <!-- Submit button -->
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary btn-block mb-3" style="width: 40%; height: 45px;" [disabled]="loginForm.invalid" >Sign In</button>
+    </div>
 
-      <div class="row mb-4">
-        <div class="col d-flex justify-content-center">
-          <!-- Checkbox -->
-          Click <a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" style="text-decoration: none" href="login"> here </a> to reset
-        </div>
-    
-        <div class="col">
-          <!-- Simple link -->
-          <a style="text-decoration: none" href="#!">Forgot password?</a>
-        </div>
-      </div>
-    
-      <!-- Submit button -->
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="loginForm.invalid" >Sign In</button>
-      </div>
-
+    <footer>
       <!-- Register buttons -->
       <div class="text-center">
-        <p>Don't have an account? <a style="text-decoration: none" href="register">Register</a></p>
+        <p> Forgot 
+          <a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"  href="login">password</a>?
+         <br>
+        Don't have an <a class="link-danger link-offset-2 link-underline-opacity-10 link-underline-opacity-100-hover"  href="register">account</a>?</p>
       </div>
+    </footer>
 
     </form>
 </div>
