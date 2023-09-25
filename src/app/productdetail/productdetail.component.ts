@@ -22,7 +22,7 @@ export class ProductdetailComponent implements OnInit{
   
   // Now, you can use the productid to fetch products based on it
   this.serv.GetProductById(productId);
-  // this.serv.GetProductById(1);
+  //this.serv.GetProductById(1);
 });
     
     

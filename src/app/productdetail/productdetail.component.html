@@ -1,5 +1,6 @@
 <div class="container m-3" *ngIf="serv.productList && serv.productList.length > 0">
-    <ul>
+  <!-- <div class="container mx-auto"> -->
+    
       <div class="card">
         <div class="row">
         <div class="col-md-6">
@@ -7,11 +8,12 @@
           <br>
           
         </div>
-        <div class="col-md-6 text-center p-4">
-          <div class="card p-5" style="height: 100%;width: auto;">
-            <header>
+        <div class="col-md-6 p-4">
+          <div class="card p-3 text-left" style="height: 100%;width: auto;">
+            <header class="card-header">
             <h2>{{serv.pro.ProductName}}</h2>
           </header>
+          <div class="card-body text-start">
             <div style="height: calc((50%-10px));">Description: 
               {{ serv.pro.Description }}</div>
             <h5>Price: {{ serv.pro.UnitPrice }}</h5>
@@ -21,16 +23,38 @@
             <input type="number" value="1">
           </span>
           <hr>
-          <span class="m-2">
-            <button class="btn btn-primary m-3">Add To Cart</button>
-            <button class="btn btn-primary m-3">Buy Now</button>
-          </span>
+          Offers:
+            <ol>
+              <li>
+                offer 1
+              </li>
+              <li>
+                50% off on 1st purchase
+              </li>
+              <li>
+                offer 1
+              </li>
+              <li>
+                offer 1
+              </li>
+              
+            </ol>
           </div>
+          <div class="card-footer mb-0">
+            <span>
+              <button class="btn btn-primary me-2">Add To Cart</button>
+              <button class="btn btn-primary ms-2">Buy Now</button>
+            </span>
+          </div>
+          
+          </div>
+          
         </div>
       </div>
+      
         
       </div>
-    </ul>
+  
   </div>
   <div *ngIf="!serv.productList || serv.productList.length === 0">
     <p>No products available.</p>

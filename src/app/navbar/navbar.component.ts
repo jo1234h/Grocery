@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ApiServicesService } from '../Shared/api-services.service';
 import { AuthenticatedResponse } from '../models/authenticated-response';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ import { AuthenticatedResponse } from '../models/authenticated-response';
 export class NavbarComponent implements OnInit
 {
 
-  constructor(private jwtHelper: JwtHelperService,private serv:ApiServicesService) { }
+  constructor(private jwtHelper: JwtHelperService,private serv:ApiServicesService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -43,7 +44,9 @@ export class NavbarComponent implements OnInit
     localStorage.removeItem('Phone');
   }
   
-  
+  isActive(route:string){
+    return this.router.url.includes(route);
+  }
 
  
 
