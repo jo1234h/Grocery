@@ -1,5 +1,6 @@
 export interface OrderSummary {
-    productName:string;
-    quantity:number;
-    pricePerProduct:number;
+    productId?:number;
+    productName?:string;
+    quantity?:number;
+    pricePerProduct?:number;
 }

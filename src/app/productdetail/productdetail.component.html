@@ -20,7 +20,7 @@
             <p>Quantity in Stock: {{ serv.pro.UnitsInStock }}</p>
           <span>
             <Label class="m-2">Quantity</Label>
-            <input type="number" value="1">
+            <input type="number" [(ngModel)]="qty" min="1" max="{{serv.pro.UnitsInStock}}">
           </span>
           <hr>
           Offers:
@@ -42,7 +42,7 @@
           </div>
           <div class="card-footer mb-0">
             <span>
-              <button class="btn btn-primary me-2">Add To Cart</button>
+              <button class="btn btn-primary me-2" (click)="addToCart(serv.pro.Id,serv.pro.ProductName,serv.pro.UnitPrice)">Add To Cart</button>
               <button class="btn btn-primary ms-2">Buy Now</button>
             </span>
           </div>

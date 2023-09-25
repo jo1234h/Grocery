@@ -3,6 +3,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { ApiServicesService } from '../Shared/api-services.service';
 import { AuthenticatedResponse } from '../models/authenticated-response';
 import { Router } from '@angular/router';
+import { OrderSummary } from '../models/order-summary';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit
 {
 
+  totalAmount:number=0;
   constructor(private jwtHelper: JwtHelperService,private serv:ApiServicesService,private router:Router) { }
 
   ngOnInit(): void {
@@ -25,6 +27,18 @@ export class NavbarComponent implements OnInit
   }
   getPhone(){
     return (localStorage.getItem("Phone")!=null)?'Phone Number :'+localStorage.getItem("Phone"):'';
+  }
+
+  getOrderList(){
+    return this.serv.orderedProducts;
+  }
+
+  calculateTotal(){
+    this.totalAmount=45;
+    this.getOrderList().forEach(element => {
+      this.totalAmount+=element.pricePerProduct;
+    });
+    return this.totalAmount;
   }
   
 
@@ -49,6 +63,9 @@ export class NavbarComponent implements OnInit
     return this.router.url.includes(route);
   }
 
+  removeItem(id:any){
+    this.serv.orderedProducts=this.serv.orderedProducts.filter(item=>item.productId!==id);
+  }
  
 
 }

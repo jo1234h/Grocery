@@ -20,7 +20,7 @@ export class ApiServicesService {
   public productList: Product[];
   public pro: Product;
   public productbynameandprice :Product[];
-  public orderedProducts:OrderSummary[];
+  public orderedProducts:OrderSummary[]=[];
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {
     const headerSettings: { [name: string]: string | string[]; } = {};
