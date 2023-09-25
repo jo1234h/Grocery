@@ -19,6 +19,8 @@ import { CategoryComponent } from './category/category.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
+import { CategoryAddComponent } from './Admin/category-add/category-add.component';
+import { CategoryDisplayComponent } from './Admin/category-display/category-display.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -40,7 +42,9 @@ export function tokenGetter() {
     CategoryComponent,
     FooterComponent,
     HeaderComponent,
-    SearchresultComponent
+    SearchresultComponent,
+    CategoryAddComponent,
+    CategoryDisplayComponent
   ],
   imports: [
     BrowserModule,
