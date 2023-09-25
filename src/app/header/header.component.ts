@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit{
   ngOnInit() {    
     this.searchForm = this.formbulider.group({    
       productName: ['', [Validators.required]],     
-      price: [0]
+      price: []
     });    
   }   
   onFormSubmit() {
