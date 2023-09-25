@@ -1,20 +1,35 @@
-<p>productdetail works!</p>
-
 <div *ngIf="serv.productList && serv.productList.length > 0">
     <h2>Product Details</h2>
+
     <ul>
-      <div  class="product-card">
-        <h3>{{serv.pro.Id}}</h3>
-        <p>Category: {{ serv.pro.ProductName}}</p>
-        <p>Price: {{ serv.pro.UnitPrice }}</p>
-        <p>Description: {{ serv.pro.Description }}</p>
-        <p>UnitsInStock: {{ serv.pro.UnitsInStock }}</p>
-        <Label>Quantity</Label>
-        <input type="number">
-        <br>
-        <button class="btn btn-primary">Add To Cart</button>
-        <button class="btn btn-primary">Buy Now</button>
-        
+      <div class="card">
+        <div class="row">
+        <div class="col-md-6">
+          <img src="assets/Images/item.jpg" alt="Category Image">
+          <br>
+          
+        </div>
+        <div class="col-md-6 text-center p-4">
+          <div class="card p-5" style="height: 100%;width: auto;">
+            <header>
+            <h2>{{serv.pro.ProductName}}</h2>
+          </header>
+            <div style="height: calc((50%-10px));">Description: 
+              {{ serv.pro.Description }}</div>
+            <h5>Price: {{ serv.pro.UnitPrice }}</h5>
+            <p>Quantity in Stock: {{ serv.pro.UnitsInStock }}</p>
+          <span>
+            <Label class="m-2">Quantity</Label>
+            <input type="number" value="1">
+          </span>
+          <hr>
+          <span class="m-2">
+            <button class="btn btn-primary m-3">Add To Cart</button>
+            <button class="btn btn-primary m-3">Buy Now</button>
+          </span>
+          </div>
+        </div>
+      </div>
         
       </div>
     </ul>
