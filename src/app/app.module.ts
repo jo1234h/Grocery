@@ -21,6 +21,7 @@ import { HeaderComponent } from './header/header.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
 import { CategoryAddComponent } from './Admin/category-add/category-add.component';
 import { CategoryDisplayComponent } from './Admin/category-display/category-display.component';
+import { ProductEditComponent } from './Admin/product-edit/product-edit.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -44,7 +45,8 @@ export function tokenGetter() {
     HeaderComponent,
     SearchresultComponent,
     CategoryAddComponent,
-    CategoryDisplayComponent
+    CategoryDisplayComponent,
+    ProductEditComponent,
   ],
   imports: [
     BrowserModule,
