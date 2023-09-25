@@ -1,0 +1,107 @@
+<section class="h-100 h-custom gradient-custom-2">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12">
+                <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                        <div class="row g-0">
+                            <div class="col-lg-8">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Product Id</th>
+                                            <th>Product Name</th>
+                                            <th>Unit Price</th>
+                                            <th>Units In Stock</th>
+                                            <th>Discontinued</th>
+                                            <th>Category</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let p of serv.allProducts">
+                                            <td (click)="fillForm(p)">{{p.Id}}</td>
+                                            <td (click)="fillForm(p)">{{p.ProductName}}</td>
+                                            <td (click)="fillForm(p)">{{p.UnitPrice}}</td>
+                                            <td (click)="fillForm(p)">{{p.UnitsInStock}}</td>
+                                            <td (click)="fillForm(p)">{{p.Discontinued}}</td>
+                                            <td (click)="fillForm(p)">{{p.CategoryId}}</td>
+                                            <td><i class="fa fa-trash bg-danger text-white"
+                                                    (click)="delProduct(p.Id)"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+
+
+                            <div class="col-lg-4 bg-indigo text-white">
+                                <div class="p-5">
+                                    <h3 class="fw-normal mb-5">Product Details</h3>
+                                    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                                        <input type="hidden" name="Id" name="Id"
+                                        [(ngModel)]="serv.singleData.Id" #Id="ngModel" [value]="serv.singleData.Id">
+                                        <div class="mb-4 pb-2">
+                                            <div class="form-outline form-white">
+                                                <input type="text" id="ProductName" name="ProductName"
+                                                    [(ngModel)]="serv.singleData.ProductName" #ProductName="ngModel"
+                                                    class="form-control form-control-lg" />
+                                                <label class="form-label" for="productName">Product Name</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 pb-2">
+                                            <div class="form-outline form-white">
+                                                <input type="text" id="Description" name="Description" #Description="ngModel"
+                                                    [(ngModel)]="serv.singleData.Description"
+                                                    class="form-control form-control-lg" />
+                                                <label class="form-label" for="Description">Description</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5 mb-4 pb-2">
+
+                                                <div class="form-outline form-white">
+                                                    <input type="number" id="UnitPrice" name="UnitPrice" #UnitPrice="ngModel"
+                                                        [(ngModel)]="serv.singleData.UnitPrice"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="UnitPrice">Unit Price</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-7 mb-4 pb-2">
+
+                                                <div class="form-outline form-white">
+                                                    <input type="number" id="UnitsInStock" name="UnitsInStock" #UnitsInStock="ngModel"
+                                                        [(ngModel)]="serv.singleData.UnitsInStock"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="UnitsInStock">Units In Stock</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mb-4 pb-2">
+                                            <div class="form-outline form-white">
+                                                <input name="Discontinued" type="checkbox" id="Discontinued" #Discontinued="ngModel"
+                                                [(ngModel)]="serv.singleData.Discontinued" style="width: 30px;height: 16px;"
+                                                 value=true />
+                                                 <label class="form-label" for="Discontinued">Discontinued</label>
+                                            </div>
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-light btn-lg"
+                                            data-mdb-ripple-color="dark">Register</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

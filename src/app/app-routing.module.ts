@@ -10,6 +10,7 @@ import { AuthGuard } from './guards/auth-guard';
 import { RegisterComponent } from './register/register.component';
 import { SubcategoryComponent } from './subcategory/subcategory.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
+import { ProductEditComponent } from './Admin/product-edit/product-edit.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'subcategory/:Id',component:SubcategoryComponent,canActivate:[AuthGuard]},
   {path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
   {path: 'search', component: SearchresultComponent, canActivate: [AuthGuard] },
+  {path: 'editproducts', component: ProductEditComponent },
   {path:'**',redirectTo:'subcategory'},
   
 ];

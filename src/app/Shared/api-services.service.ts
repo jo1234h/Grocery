@@ -18,8 +18,11 @@ export class ApiServicesService {
   header: any;
   public categoryList: Category[];
   public productList: Product[];
+  public allProducts: Product[];
   public pro: Product;
-  public productbynameandprice :Product[]
+  public productbynameandprice :Product[];
+
+  public singleData:Product=new Product();
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {
     const headerSettings: { [name: string]: string | string[]; } = {};
@@ -90,13 +93,12 @@ export class ApiServicesService {
     });
   }
 
-  
-
-  allProducts:Product[];
   //for getting all products
-  GetAllProducts(){
-    this.http.get<Product[]>(this.apiURL+'Products').subscribe(data=>{
-      this.allProducts=data;
+  GetAllProducts()
+  {
+    this.http.get<Product[]>(this.apiURL+'Products').subscribe(data=>
+    {
+        this.allProducts=data;
     })
   }
 
@@ -107,12 +109,12 @@ export class ApiServicesService {
 
   //for adding products
   AddProducts(product:Product){
-    this.http.post<Product>(this.apiURL+'Products',product,this.httpOptions);
+    return this.http.post<Product>(this.apiURL+'Products',product,this.httpOptions);
   }
 
   //for updating products
   EditProducts(product:Product){
-    this.http.put<Product>(this.apiURL+'Products',product,this.httpOptions)
+    return this.http.put<Product>(this.apiURL+'Products/'+product.Id,product,this.httpOptions);
   }
 
   //get product by id
@@ -120,6 +122,10 @@ export class ApiServicesService {
     this.http.get<Product>(this.apiURL+'Products/'+id).subscribe(data=>{
       this.pro=data;
     })
+  }
+
+  deleteProduct(id:number){
+    return this.http.delete<Product>(this.apiURL+'Products/'+id);
   }
 
 }
