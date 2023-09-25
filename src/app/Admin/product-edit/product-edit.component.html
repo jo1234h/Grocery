@@ -1,14 +1,14 @@
-<section class="h-100 h-custom gradient-custom-2">
-    <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12">
+<section class="h-custom gradient-custom-2">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12" style="max-height: 580px;">
                 <div class="card card-registration card-registration-2" style="border-radius: 15px;" >
                     <div class="card-body p-0">
                         <div class="row g-0">
 
-                            <div class="col-lg-8">
-                                <table class="table table-hover table-dark table-borderless">
-                                    <thead>
+                            <div class="col-lg-8 display-flex ps-2 pt-2" style="height: 550px;overflow-y: auto;">
+                                <table class="table table-hover table-responsive table-dark table-borderless">
+                                    <thead class="sticky-top">
                                         <tr>
                                             <th>Product Id</th>
                                             <th>Product Name</th>
@@ -44,12 +44,12 @@
 
 
                             <div class="col-lg-4 bg-indigo text-white">
-                                <div class="p-5">
-                                    <h3 class="fw-normal mb-5">Product Details</h3>
+                                <div class="ps-5 pe-5 pt-3">
+                                    <h3 class="fw-normal mb-4">Product Details</h3>
                                     <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
                                         <input type="hidden" name="Id" name="Id"
                                         [(ngModel)]="serv.singleData.Id" #Id="ngModel" [value]="serv.singleData.Id">
-                                        <div class="mb-4 pb-2">
+                                        <div class="mb-2 pb-1">
                                             <div class="form-outline form-white">
                                                 <input type="text" id="ProductName" name="ProductName"
                                                     [(ngModel)]="serv.singleData.ProductName" #ProductName="ngModel"
@@ -58,7 +58,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="mb-4 pb-2">
+                                        <div class="mb-2 pb-1">
                                             <div class="form-outline form-white">
                                                 <input type="text" id="Description" name="Description" #Description="ngModel"
                                                     [(ngModel)]="serv.singleData.Description"
@@ -68,7 +68,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-5 mb-4 pb-2">
+                                            <div class="col-md-5 mb-2 pb-1">
 
                                                 <div class="form-outline form-white">
                                                     <input type="number" id="UnitPrice" name="UnitPrice" #UnitPrice="ngModel"
@@ -78,7 +78,7 @@
                                                 </div>
 
                                             </div>
-                                            <div class="col-md-7 mb-4 pb-2">
+                                            <div class="col-md-7 mb-2 pb-1">
 
                                                 <div class="form-outline form-white">
                                                     <input type="number" id="UnitsInStock" name="UnitsInStock" #UnitsInStock="ngModel"
@@ -90,7 +90,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="mb-4 pb-2">
+                                        <div class="mb-2 pb-1">
                                             <div class="form-outline form-white">
                                                 <input type="text" id="CategoryId" name="CategoryId" #CategoryId="ngModel"
                                                     [(ngModel)]="serv.singleData.CategoryId"
@@ -99,7 +99,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="mb-4 pb-2">
+                                        <div class="mb-2 pb-1">
                                             <div class="form-outline form-white">
                                                 <input name="Discontinued" type="checkbox" id="Discontinued" #Discontinued="ngModel"
                                                 [(ngModel)]="serv.singleData.Discontinued" style="width: 30px;height: 16px;"

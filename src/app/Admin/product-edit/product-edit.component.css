@@ -1,6 +1,6 @@
 @media (min-width: 1025px) {
     .h-custom {
-    height: 100vh !important;
+    height: 90vh !important;
     }
     }
     .card-registration .select-input.form-control[readonly]:not([disabled]) {
@@ -28,7 +28,7 @@
     background-color: #4835d4;
     }
     @media (min-width: 992px) {
-    .card-registration-2 .bg-indigo {
+    .card-registration-2 .bg-indigo{
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     }
