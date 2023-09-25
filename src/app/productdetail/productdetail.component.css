@@ -12,13 +12,14 @@ button:hover{
     
 }
 
-.product-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(250px, 1fr));
-    gap: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+img{
+    width: 400px;
+    height: 400px;
+}
+
+.minmax-width{
+    min-width: 450px;
+    max-width: 450px;
 }
 .card{
    

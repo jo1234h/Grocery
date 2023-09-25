@@ -8,10 +8,13 @@ body{
 }
 
 
-/* .modal-body{
 
-    background-color: black;
-} */
+.modal-body {
+    background-color: #fff;
+    border-color: #fff;
+
+}
+
 
 
 
@@ -23,6 +26,7 @@ body{
 .close{
 
     color: #fff;
+    cursor: pointer;
 }
 
 
@@ -35,4 +39,37 @@ body{
 .intro-2{
 
     font-size: 13px;
+}
+
+.theme-color{
+
+    color: #004cb9;
+}
+hr.new1 {
+    border-top: 2px dashed #fff;
+    margin: 0.4rem 0;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #004cb9;
+    border-color: #004cb9;
+    padding: 12px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 1px;
+    font-size: 17px;
+}
+
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #004cb9;
+    border-color: #004cb9;
+    padding: 12px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 1px;
+    font-size: 17px;
 }
