@@ -39,3 +39,10 @@
     border-bottom-right-radius: 15px;
     }
     }
+
+    .custom-container{
+        height: 550px;
+        overflow-y: auto;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
