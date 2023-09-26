@@ -1,24 +1,238 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img src="assets\Images\groc.png" height="30" width="30" alt="MDB Logo" loading="lazy" />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-underline">
+        <li class="nav-item" [ngClass]="{'active':isActive('')}">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAdmin()" [ngClass]="{'active':isActive('about')}">
+          <a class="nav-link" routerLink="/about">About</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAdmin()" [ngClass]="{'active':isActive('contact')}">
+          <a class="nav-link" routerLink="/contact" >Contact</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin()" >  
+          <a class="nav-link" routerLink="/editproducts">Products</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin()">
+          <a class="nav-link" routerLink="/editcategory">Categories</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right elements -->
+
+
+
+    <div class="d-flex align-items-center">
+      <a class="link-secondary me-3" data-bs-toggle="modal" data-bs-target="#cart" (click)="getOrderList()"
+        *ngIf="checkUserActive() && !isAdmin()">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="badge rounded-pill badge-notification bg-danger" *ngIf="checkItemsInCart()>0 ">{{checkItemsInCart()}}</span>
+      </a>
+
+      <button type="button" *ngIf="checkUserActive()" class="btn btn-dark launch me-2" style="border-radius: 50%;"
+        data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i class="fa fa-user"></i></button>{{getUserName()}}
+
+      <!-- Avatar -->
+      <!-- <div class="dropdown" *ngIf="checkUserActive()">
+        <a class="dropdown-toggle d-flex align-items-center" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+          <img  src="https://www.dpforwhatsapp.in/img/no-dp-images/7.webp" class="rounded-circle" height="25" loading="lazy" />
+        </a> 
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+          <li>
+            <a class="dropdown-item" href="#">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Settings</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Logout</a>
+          </li>
+        </ul>
+      </div> -->
+      <button type="button" class="btn btn-outline-secondary" *ngIf="!checkUserActive()"
+        routerLink="register">Register</button>
+      &nbsp;
+      &nbsp;
+      <button type="button" class="btn btn-outline-primary" *ngIf="!checkUserActive()" routerLink="login">Login</button>
+    </div>
+  </div>
+</nav>
+
+  <div *ngIf="isAdmin()" class="d-flex justify-content-center align-items-center text-center bg-dark text-warning">
+    <h4>ADMINISTRATOR ACCESS</h4>
+  </div>
+
+
+
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body bg-light">
+        <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="text-center mt-2">
+              <img src="https://www.dpforwhatsapp.in/img/no-dp-images/7.webp" width="200">
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="text-dark mt-5">
+              <h1 class="mb-0">{{getUserName()}}</h1>
+              <div class="mt-4">
+                <span class="intro-1">{{getEmailId()}}</span>
+              </div>
+              <div class="mt-4">
+                <span class="intro-1">{{getPhone()}}</span>
+              </div>
+              <div class="mt-4 mb-5">
+                <button type="button" class="btn btn-danger btn-outline-danger text-white close" data-bs-dismiss="modal"
+                  (click)="logout()">Logout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="cart" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body ">
+        <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+        <div class="px-2 py-1"> 
+          <span class="theme-color">Order Summary</span>
+          <div class="mb-3">
+            <hr class="new1">
+          </div>
+          <div *ngIf="getOrderList() && getOrderList().length > 0">
+            <div class="container-fluid" style="height: 300px;overflow-y: auto; background-color: aqua;">
+              <ul class="p-0" *ngFor="let item of getOrderList()">
+                <div class="card m-1">
+                  <div class="row align-items-center">
+                    <div class="col-md-3">
+                      <img src="assets/Images/products/{{item.productName}}.jpg" alt="Product Image" loading="lazy" height="100px" width="100px">
+                    </div>
+                    <div class="col-md-6 mt-2">
+                      
+                        <h5 class="m-0 p-0">{{item.productName}}</h5>
+                        Qty:{{item.quantity}}
+                        <br>
+                        Price: <i class="fa fa-light fa-indian-rupee-sign"></i>{{item.pricePerProduct}}
+                        
+                    </div>
+                    <div class="col-md-3 jalign-self-center">
+                      <button class="btn" (click)="removeItem(item.productId)"><i class="fa fa-trash fa-solid fa-2xl"
+                          style="color: #ff0000;"></i></button>
+                    </div>
+                  </div>
+                </div>
+
+              </ul>
+              
+            </div>
+            <div class="d-flex justify-content-between">
+              <small>Delivery charges</small>
+              <small><i class="fa fa-light fa-indian-rupee-sign"></i>45</small>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <span class="font-weight-bold">Total</span>
+              <span class="font-weight-bold theme-color"><i class="fa fa-light fa-indian-rupee-sign"></i>{{calculateTotal()}}</span>
+
+            </div>
+            <div class="text-center mt-5">
+              <button class="btn btn-primary" (click)="PlaceOrder()">Place your order</button>
+            </div>
+          </div>
+
+          <div *ngIf="!getOrderList() || getOrderList().length === 0">
+            <h3 class="text-center">Your Cart is Empty</h3>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 
+
 <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar w/ text</a>
+      <a class="navbar-brand" href="#">Groccery App</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" routerLink="about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" routerLink="contact">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="productdetail">Product Detail</a>
+          </li>
+         <li class="nav-item">
         </ul>
-        <span class="navbar-text">
-          SignIn\SignUp
-        </span>
+
+        <label  class="m-2" *ngIf="checkUserActive()">Welcome {{username}}</label>
+  
+        <button type="button" class="btn btn-outline-dark" *ngIf="!checkUserActive()" routerLink="login">Login</button>
+        <button type="button" class="btn btn-outline-dark" *ngIf="checkUserActive()" (click)="logout()">Logout</button>
+
+
       </div>
     </div>
-  </nav>
+  </nav> -->

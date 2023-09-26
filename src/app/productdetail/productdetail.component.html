@@ -1,0 +1,73 @@
+<div class="container" 
+  *ngIf="serv.productList && serv.productList.length > 0">
+  <!-- <div class="container" style="min-width: 500;max-width: 1000; display: block;"> -->
+
+  <div class="card mt-4" style="margin: auto;min-width: 450px;max-width: 1000px;">
+    <div class="row">
+      <div class="col-md-6 minmax-width">
+        <img src="assets/Images/products/{{serv.pro.ProductName}}.jpg" alt="Category Image">
+        <br>
+
+      </div>
+      <div class="col-md-6 p-4 minmax-width">
+        <div class="card p-3 text-left" style="height: 100%;width: auto;">
+          <header class="card-header">
+            <h2>{{serv.pro.ProductName}}</h2>
+          </header>
+          <div class="card-body text-start">
+            <div style="height: calc((50%-10px));">Description:
+              {{ serv.pro.Description }}</div>
+            
+            <p>Quantity in Stock: {{ serv.pro.UnitsInStock }}</p>
+            <span class="input-group input-spinner">
+              <Label>Quantity:</Label>
+              <div class="input-group position-absolute top-50 start-100 translate-middle me-5">
+                <div class="input-group-prepend">
+                <button class="btn btn-default counter-btn " (click)="decreaseItem()"><i class="fa fa-light fa-minus"></i></button>
+              </div>
+                <input type="number" class="form-control ps-3" [(ngModel)]="qty" min="1" max="{{serv.pro.UnitsInStock}}" readonly>
+                <div class="input-group-apppend">
+                <button class="btn btn-default counter-btn" (click)="increaseItem(serv.pro.UnitsInStock)"><i class="fa fa-light fa-plus"></i></button>
+              </div>
+            </div>
+            </span>
+            <h5 class="mt-4">Price: <i class="fa fa-light fa-indian-rupee-sign"></i>{{ serv.pro.UnitPrice }}</h5>
+            <hr>
+            Offers:
+            <ol>
+              <li>
+                offer 1
+              </li>
+              <li>
+                offer 2
+              </li>
+              <li>
+                offer 3
+              </li>
+              <li>
+                offer 4
+              </li>
+
+            </ol>
+          </div>
+          <div class="card-footer mb-0">
+            <span>
+              <button class="btn btn-primary me-2 custom-button"
+                (click)="addToCart(serv.pro.Id,serv.pro.ProductName,serv.pro.UnitPrice)">Add To Cart</button>
+              <button class="btn btn-primary ms-2 custom-button" data-bs-toggle="modal" data-bs-target="#cart" (click)="addToCart(serv.pro.Id,serv.pro.ProductName,serv.pro.UnitPrice)">Buy Now</button>
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+<div *ngIf="!serv.productList || serv.productList.length === 0">
+  <p>No products available.</p>
+</div>
+

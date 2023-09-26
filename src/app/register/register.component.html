@@ -1,0 +1,131 @@
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <div class="text-center">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+            </div>
+            
+            <form [formGroup]="UserForm" (ngSubmit)="onFormSubmit()">
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="firstName" class="form-control" placeholder="First Name" formControlName="FirstName">
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="lastName" class="form-control" placeholder="Last Name" formControlName="LastName">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <input
+                        placeholder="Date of Birth"
+                        formControlName="DateofBirth"
+                        class="form-control"
+                        type="text"
+                        onfocus="(this.type='date')"
+                        onblur="(this.type='text')"
+                        id="date" />                
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <select  style="width: 100%;" class="select form-control" formControlName="Gender">
+                    <option value="" disabled selected hidden>Choose Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="email" id="emailAddress" class="form-control" placeholder="Email" formControlName="EmailId">                   
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="tel" id="phoneNumber" class="form-control" placeholder="Mobile" formControlName="MobileNo">                   
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <input type="password" class="form-control" placeholder="Password"  formControlName="Password">  
+                </div>
+              </div>
+
+              <div class="text-center">
+                <div class="mt-4 pt-2">
+                  <button type="submit" class="btn btn-block btn-primary">Register</button>  
+                </div>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- 
+
+<div class="container" style="padding-top:40px;">  
+    <div class="row">  
+      <div class="col-md-6 mx-auto">  
+        <div class="card mx-4">  
+          <div class="card-body p-4">  
+            <form [formGroup]="UserForm" (ngSubmit)="onFormSubmit()">  
+              <h1 style="text-align:center">Register</h1>  
+            
+              <div class="input-group mb-3">  
+                <input type="text" class="form-control" placeholder="FirstName"  formControlName="FirstName">  
+              </div>  
+              <div class="input-group mb-3">  
+                <input type="text" class="form-control" placeholder="LastName"  formControlName="LastName">  
+              </div>  
+              <div class="input-group mb-4">  
+                <select class="form-control" formControlName="Gender">
+                    <option value="" disabled selected hidden>Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select> 
+              </div>  
+              <div class="input-group mb-3">  
+                <input type="date" class="form-control" placeholder="Date of Birth"  formControlName="DateofBirth">  
+              </div>  
+              <div class="input-group mb-4">  
+                <input type="text" class="form-control" placeholder="Email Id"  formControlName="EmailId">  
+              </div>  
+              <div class="input-group mb-4">  
+                <input type="text" class="form-control" placeholder="Mobile No"  formControlName="MobileNo">  
+              </div>  
+              <div class="input-group mb-3">  
+                <input type="password" class="form-control" placeholder="Password"  formControlName="Password">  
+              </div>  
+              <button type="submit" class="btn btn-block btn-success">Add User</button>  
+            </form>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div> 
+   -->

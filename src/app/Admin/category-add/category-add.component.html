@@ -1,0 +1,20 @@
+<div class="col-12 bg-primary text-white custom-container">
+    <div class="p-5">
+        <h3 class="fw-normal mb-4">Category Details</h3>
+        <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" (reset)="resetForm(form)">
+            <input type="hidden" name="Id" name="Id"
+            [(ngModel)]="serv.Cdata.Id" #Id="ngModel" [value]="serv.Cdata.Id">
+            <div class="mb-4 pb-2">
+                <div class="form-outline form-white">
+                    <input type="text" id="CategoryName" name="CategoryName"
+                        [(ngModel)]="serv.Cdata.CategoryName" #CategoryName="ngModel"
+                        class="form-control form-control-lg" />
+                    <label class="form-label" for="CategoryName">Category Name</label>
+                </div>
+                <button class="btn btn-danger mt-4 me-2" type="submit" >Add / Update</button>
+                <button class="btn btn-info mt-4 ms-2" type="reset">Reset</button>
+            </div>
+           
+        </form>
+        </div>
+</div>
