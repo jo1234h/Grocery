@@ -22,10 +22,18 @@ export class ProductsComponent implements OnInit{
     this.serv.GetProductCategories();  
   }  
 
+  selectedCategoryId: number;
 
 
 onProductClick(categoryId: number) {
+  this.selectedCategoryId = categoryId;
+
   const productsByCategory = this.serv.GetProductByCategory(categoryId);
+}
+
+
+isCategorySelected(categoryId: number): boolean {
+  return this.selectedCategoryId === categoryId;
 }
 
 
