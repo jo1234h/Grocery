@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-3" *ngFor="let product of serv.productList">
         <div class="card" (click)="onProductClick(product.Id)">
-          <img src="assets/Images/item.jpg" alt="Category Image">
+          <img src="assets/Images/products/{{product.ProductName}}.jpg" alt="Category Image" style="width: 250px;height: 290px;">
           <div class="card-body">
             <h2 style="text-align: center;">{{ product.ProductName }}</h2>
             <p style="text-align: center;"><i class="fa fa-light fa-indian-rupee-sign"></i>{{product.UnitPrice}}</p>
