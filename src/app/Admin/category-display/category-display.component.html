@@ -1,18 +1,34 @@
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Category ID</th>
-            <th>CategoryName</th>
-            
-           
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let category of serv.categoryList">
-        <td (click)=" fillForm(category)">{{category.Id}}</td>
-        <td (click)=" fillForm(category)">{{category.CategoryName}}</td>
-        <td><i class="fa fa-trash"(click)="delcategory(category.Id)"></i></td>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
         
-    </tr>
-    </tbody>
-</table>
+        <div class="col-lg-8">
+            <table class="table table-hover table-primary">
+                <thead>
+                    <tr>
+                        <th>Category Id</th>
+                        <th>Category Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of serv.allCategory">
+                        <td (click)="fillForm(p)">{{p.Id}}</td>
+                        <td (click)="fillForm(p)">{{p.CategoryName}}</td>
+                        
+                        <td><i class="fa fa-trash bg-danger text-white"
+                                (click)="delcategory(p.Id)"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+        </div>
+        </div>
+        <div class="col-md-6">
+           <app-category-add></app-category-add>
+          </div>
+         
+        </div>
+      </div>
+
+           

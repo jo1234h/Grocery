@@ -19,6 +19,10 @@ export class ApiServicesService {
   header: any;
   public categoryList: Category[];
   
+  public allCategory:Category[];
+  public Cdata: Category = { Id: 0, CategoryName: '' };
+
+
   public productList: Product[];
   public allProducts: Product[];
   public pro: Product;
@@ -108,9 +112,11 @@ export class ApiServicesService {
   }
 
   //for adding category
-  AddCategory(category:Category):Observable<any>{
-    return this.http.post<Category>(this.apiURL+'Products', category, this.httpOptions);
+  AddCategory(category:Category){
+    return this.http.post<Category>(this.apiURL+'Categories',category,this.httpOptions);
   }
+
+ 
 
   //for adding products
   AddProducts(product:Product){
@@ -128,20 +134,24 @@ export class ApiServicesService {
       this.pro=data;
     })
   }
+  //for getting all category
+  GetAllCategory()
+  {
+    this.http.get<Category[]>(this.apiURL+'Categories').subscribe(data=>
+    {
+        this.allCategory=data;
+    })
+  }
+
   //for delete category
-  deleteCategory(categoryId: number) {
-    const url = `${this.apiURL}Categories/${categoryId}`;
-    
-    return this.http.delete(url, this.httpOptions);
-  }
-  //for update category
-  updateCategory(categoryId:number):Observable<any>{
-    const url = `${this.apiURL}Categories/${categoryId}`;
-    return this.http.put(url, this.httpOptions);
-
+  deleteCategory(id: number) {
+    return this.http.delete<Category>(this.apiURL+'Categories/'+id);
 
   }
-
+//for edit category
+  EditCategory(category:Category){
+    return this.http.put<Category>(this.apiURL+'Categories/'+category.Id,category,this.httpOptions);
+  }
   deleteProduct(id:number){
     return this.http.delete<Product>(this.apiURL+'Products/'+id);
   }

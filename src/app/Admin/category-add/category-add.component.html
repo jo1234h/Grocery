@@ -1,25 +1,19 @@
-<div class="container rounded-4 p-5" style="width: 530px;">
-    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-        <header class="text-center m-5">
-          
-          <br>Category
-        </header>
-        <div class="input-group has-validation m-2">
-            <span class="input-group-text rounded-start text-center" style="width: 18%;"><i class="fa fa-light fa-envelope mx-auto"></i></span>
-            <div class="form-floating is-invalid me-3">
-                <input name="Id" #Id="ngModel" [(ngModel)]="serv.Categories.Id"
-                placeholder="Category Id" class="form-control" required>
-
+<div class="col-lg-8 bg-primary text-white">
+    <div class="p-5">
+        <h3 class="fw-normal mb-5">Category Details</h3>
+        <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+            <input type="hidden" name="Id" name="Id"
+            [(ngModel)]="serv.Cdata.Id" #Id="ngModel" [value]="serv.Cdata.Id">
+            <div class="mb-4 pb-2">
+                <div class="form-outline form-white">
+                    <input type="text" id="CategoryName" name="CategoryName"
+                        [(ngModel)]="serv.Cdata.CategoryName" #CategoryName="ngModel"
+                        class="form-control form-control-lg" />
+                    <label class="form-label" for="CategoryName">Category Name</label>
+                </div>
             </div>
-            
-        </div>
-        <div class="input-group has-validation m-2">
-            <span class="input-group-text text-center" style="width: 18%;"> <i class="fa fa-light fa-key fa-rotate-180 mx-auto"></i> </span>
-            <div class="form-floating is-invalid me-3">
-                <input name="CategoryName" #CategoryName="ngModel" [(ngModel)]="serv.category.CategoryName"
-                placeholder="Category Name" class="form-control" required>
-
-            </div>
-        </div>
+            <button type="submit" class="btn btn-light btn-lg"
+                data-mdb-ripple-color="dark">Add/Update</button>
         </form>
+    </div>
 </div>
