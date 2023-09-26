@@ -54,7 +54,6 @@ export class ProductEditComponent implements OnInit
 
   onSubmit (form: NgForm)
   {
-    console.log(this.serv.singleData)
     if(this.serv.singleData.Id==0)
     {
       this.insertRecord(form); 
@@ -83,7 +82,6 @@ export class ProductEditComponent implements OnInit
   
   updateRecord(form:NgForm)
   {
-    console.log(this.serv.singleData.ProductName);
     this.serv.EditProducts(this.serv.singleData).subscribe(
       res=>
       {
