@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-md-3" *ngFor="let category of serv.categoryList">
         <div class="card">
-          <img src="assets/Images/item.jpg" alt="Category Image">
+          <img src="assets/Images/{{category.CategoryName}}.png" alt="Category Image" style="padding: 22%;">
           <div class="card-body">
             <h2 style="text-align: center;">{{ category.CategoryName }}</h2>
             <p><button (click)="navigateToPage(category.Id)" class="button">View Products</button></p>
