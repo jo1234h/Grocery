@@ -27,8 +27,17 @@ export class ProductdetailComponent implements OnInit{
   this.serv.GetProductById(productId);
   //this.serv.GetProductById(1);
 });
-    
-    
+  }
+
+  increaseItem(max:number){
+    if(this.qty!==max){
+      this.qty++;
+    }
+  }
+decreaseItem(){
+    if(this.qty!==1){
+      this.qty--;
+    }
   }
 
   addToCart(id:number,name:string,price:number){

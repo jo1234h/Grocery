@@ -51,6 +51,7 @@ export class ApiServicesService {
     if (token && !this.jwt.isTokenExpired(token)) {
       return true;
     }
+    localStorage.clear();
     return false;
   };
   //for creating users

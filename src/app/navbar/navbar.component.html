@@ -36,7 +36,7 @@
       <a class="link-secondary me-3" data-bs-toggle="modal" data-bs-target="#cart" (click)="getOrderList()"
         *ngIf="checkUserActive()">
         <i class="fa fa-shopping-cart"></i>
-        <span class="badge rounded-pill badge-notification bg-danger">15</span>
+        <span class="badge rounded-pill badge-notification bg-danger" *ngIf="checkItemsInCart()>0">{{checkItemsInCart()}}</span>
       </a>
 
       <button type="button" *ngIf="checkUserActive()" class="btn btn-dark launch me-2" style="border-radius: 50%;"
