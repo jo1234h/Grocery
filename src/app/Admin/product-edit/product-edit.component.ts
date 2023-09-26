@@ -89,7 +89,7 @@ export class ProductEditComponent implements OnInit
     this.serv.EditProducts(this.serv.singleData).subscribe(
       res=>
       {
-       this.resetForm();
+       this.resetForm(form);
        this.serv.GetAllProducts();
        alert('Product Updated!');
       },

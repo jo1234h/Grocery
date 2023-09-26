@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthenticatedResponse } from '../models/authenticated-response';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -6,7 +6,7 @@ import { Register } from '../models/register.model';
 import { Category } from '../models/category';
 import { Product } from '../models/product';
 import { OrderSummary } from '../models/order-summary';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 
 @Injectable({
@@ -60,7 +60,6 @@ export class ApiServicesService {
   };
   //for creating users
   CreateUser(register: Register) {
-    console.log("Success!");
     return this.http.post<Register>(this.apiURL + 'auth/register', register, this.httpOptions);
   }
 
@@ -114,7 +113,7 @@ export class ApiServicesService {
 
   //get product by id
   GetProductById(id:number){
-    this.http.get<Product>(this.apiURL+'Products/'+id).subscribe(data=>{
+      this.http.get<Product>(this.apiURL+'Products/'+id).subscribe(data=>{
       this.pro=data;
     })
   }
@@ -141,5 +140,21 @@ export class ApiServicesService {
   }
 
 
+  isAdmin(){
+    //return this.http.get(this.apiURL + 'admin');
+    //return this.http.get(this.apiURL + 'admin');//.subscribe(response => console.log(response.json()))
+    const token = localStorage.getItem("SecurityToken");
+    if(token)
+    {
+      var data=JSON.parse(atob(token.split(".")[1]));
+      return data["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+    }
+    else
+    {
+      return "";
+    }
+    
+
+  }
 }
 
