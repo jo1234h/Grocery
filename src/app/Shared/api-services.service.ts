@@ -108,6 +108,7 @@ export class ApiServicesService {
 
   //for updating products
   EditProducts(product:Product){
+    console.log(product.ProductName);
     return this.http.put<Product>(this.apiURL+'Products/'+product.Id,product,this.httpOptions);
   }
 
@@ -156,5 +157,7 @@ export class ApiServicesService {
     
 
   }
+
+  
 }
 

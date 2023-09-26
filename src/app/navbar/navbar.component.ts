@@ -4,6 +4,8 @@ import { ApiServicesService } from '../Shared/api-services.service';
 import { AuthenticatedResponse } from '../models/authenticated-response';
 import { Router } from '@angular/router';
 import { OrderSummary } from '../models/order-summary';
+import { find } from 'rxjs';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-navbar',
@@ -74,8 +76,17 @@ export class NavbarComponent implements OnInit
  
   PlaceOrder() 
 {
+this.serv.orderedProducts.forEach(element => {
+  this.serv.singleData=this.serv.productList.find(item=>item.Id==element.productId);
+  this.serv.singleData.UnitsInStock-=element.quantity;
+  console.log(this.serv.singleData.UnitsInStock);
+    this.serv.EditProducts(this.serv.singleData).subscribe(res=>{
+      this.serv.GetAllCategory();
+      });
+  });
   this.serv.orderedProducts=[];
  alert('Order Successfuly Placed')
+ this.router.navigate(['']);
 }
 
 isAdmin(){

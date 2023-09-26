@@ -144,7 +144,7 @@
                         <h5 class="m-0 p-0">{{item.productName}}</h5>
                         Qty:{{item.quantity}}
                         <br>
-                        Price:Rs.{{item.pricePerProduct}}
+                        Price: <i class="fa fa-light fa-indian-rupee-sign"></i>{{item.pricePerProduct}}
                         
                     </div>
                     <div class="col-md-3 jalign-self-center">
@@ -159,11 +159,11 @@
             </div>
             <div class="d-flex justify-content-between">
               <small>Delivery charges</small>
-              <small>Rs.45.00</small>
+              <small><i class="fa fa-light fa-indian-rupee-sign"></i>45</small>
             </div>
             <div class="d-flex justify-content-between mt-3">
               <span class="font-weight-bold">Total</span>
-              <span class="font-weight-bold theme-color">Rs.{{calculateTotal()}}</span>
+              <span class="font-weight-bold theme-color"><i class="fa fa-light fa-indian-rupee-sign"></i>{{calculateTotal()}}</span>
 
             </div>
             <div class="text-center mt-5">
