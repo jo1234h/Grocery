@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit
   constructor(private jwtHelper: JwtHelperService,private serv:ApiServicesService,private router:Router) { }
 
   ngOnInit(): void {
-    console.log(this.serv.isUserAuthenticated());
+    this.serv.isUserAuthenticated();
   }
   checkItemsInCart(){
     return this.serv.orderedProducts.length;
