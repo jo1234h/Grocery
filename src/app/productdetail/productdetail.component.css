@@ -1,5 +1,7 @@
 input{
-    width: 30px;
+    width: 50px;
+    padding-left: 0px;
+    padding-right: 0px;
     max-width: 60px;
     text-align: center;
     border: 4px groove whitesmoke;
