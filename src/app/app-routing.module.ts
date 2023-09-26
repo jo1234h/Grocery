@@ -6,12 +6,13 @@ import { LoginComponent } from './login/login.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
-import { AuthGuard } from './guards/auth-guard';
 import { RegisterComponent } from './register/register.component';
 import { SubcategoryComponent } from './subcategory/subcategory.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
 import { ProductEditComponent } from './Admin/product-edit/product-edit.component';
 import { CategoryDisplayComponent } from './Admin/category-display/category-display.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin-guard.guard';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -23,8 +24,8 @@ const routes: Routes = [
   {path:'subcategory/:Id',component:SubcategoryComponent,canActivate:[AuthGuard]},
   {path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
   {path: 'search', component: SearchresultComponent, canActivate: [AuthGuard] },
-  {path: 'editproducts', component: ProductEditComponent },
-  {path: 'editcategory',component:CategoryDisplayComponent},
+  {path: 'editproducts', component: ProductEditComponent,canActivate: [AdminGuard]  },
+  {path: 'editcategory',component:CategoryDisplayComponent,canActivate: [AdminGuard]},
   {path:'**',redirectTo:'subcategory'},
   
   

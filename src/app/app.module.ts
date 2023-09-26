@@ -12,7 +12,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthGuard } from './guards/auth-guard';
 import { RegisterComponent } from './register/register.component';
 import { SubcategoryComponent } from './subcategory/subcategory.component';
 import { CategoryComponent } from './category/category.component';
@@ -22,6 +21,7 @@ import { SearchresultComponent } from './searchresult/searchresult.component';
 import { CategoryAddComponent } from './Admin/category-add/category-add.component';
 import { CategoryDisplayComponent } from './Admin/category-display/category-display.component';
 import { ProductEditComponent } from './Admin/product-edit/product-edit.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
