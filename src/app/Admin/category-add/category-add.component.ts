@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApiServicesService } from 'src/app/Shared/api-services.service';
 import { Category } from 'src/app/models/category';
-
 @Component({
   selector: 'app-category-add',
   templateUrl: './category-add.component.html',
   styleUrls: ['./category-add.component.css']
 })
 export class CategoryAddComponent implements OnInit{
-  constructor(public serv:ApiServicesService){}
-  public cat:Category;
+  constructor(public serv:ApiServicesService) {
+    
+  }
+  
+  //public cat:Category;
   ngOnInit(): void {
+    this.serv.GetAllCategory();
     this.resetForm();
     
   }
@@ -20,11 +23,12 @@ export class CategoryAddComponent implements OnInit{
       form.form.reset();
     }
     else{
-      this.cat={Id:0,CategoryName:''}
+      this.serv.Cdata={Id:0,CategoryName:''}
     }
   }
-  public onSubmit(form:NgForm){
-    if(this.cat.Id==0){
+   onSubmit(form:NgForm){
+    console.log(this.serv.Cdata)
+    if(this.serv.Cdata.Id==0){
       this.insertRecord(form);
     }
     else{
@@ -32,15 +36,22 @@ export class CategoryAddComponent implements OnInit{
     }
   }
   insertRecord(form:NgForm){
-    this.serv.AddCategory(form.value).subscribe(res=>{this.resetForm(form);
-    this.cat=res.value;
-    })
+    this.serv.AddCategory(this.serv.Cdata).subscribe(res=>
+      {this.resetForm(form);
+    this.serv.GetAllCategory();
+    alert('Category Added!!!')
+    },
+    err=>{
+      alert('Error'+err);
+    }
+    )
   }
   updateRecord(form:NgForm){
-    this.serv.updateCategory(form.value).subscribe(res=>
+    this.serv.EditCategory(this.serv.Cdata).subscribe(res=>
       {
         this.resetForm();
-        this.cat=res.value;
+        this.serv.GetAllCategory();
+       // this.cat=res.value;
         alert('Record Updated!!!');
       },
       err=>{
