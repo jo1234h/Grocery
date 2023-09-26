@@ -22,6 +22,7 @@ import { CategoryAddComponent } from './Admin/category-add/category-add.componen
 import { CategoryDisplayComponent } from './Admin/category-display/category-display.component';
 import { ProductEditComponent } from './Admin/product-edit/product-edit.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin-guard.guard';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -62,7 +63,7 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
