@@ -23,12 +23,14 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let p of serv.allProducts">
+                                            <td >{{p.Id}}</td>
                                             <td >{{p.ProductName}}</td>
                                             <td >{{p.UnitPrice}}</td>
                                             <td >{{p.UnitsInStock}}</td>
-                                            <td >{{p.CategoryId}}</td>
                                             <td >{{p.Discontinued}}</td>
-                                            <td >{{p.Id}}</td>
+                                            <td >{{p.CategoryId}}</td>
+                                            
+                                           
                                          
                                             <td><i class="fas fa-edit bg-warning text-black" (click)="fillForm(p)"></i></td>
 

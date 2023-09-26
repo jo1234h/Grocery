@@ -17,7 +17,7 @@ export class CategoryDisplayComponent implements OnInit {
   }
   delcategory(id)
     {
-      if(confirm("Are you sure to delete this product?"))
+      if(confirm("Are you sure to delete this category?"))
       {
         this.serv.deleteCategory(id).subscribe
         (
