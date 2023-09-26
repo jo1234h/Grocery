@@ -1,7 +1,7 @@
-<div class="col-lg-8 bg-primary text-white">
+<div class="col-12 bg-primary text-white" style="height: 550px;">
     <div class="p-5">
-        <h3 class="fw-normal mb-5">Category Details</h3>
-        <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+        <h3 class="fw-normal mb-4">Category Details</h3>
+        <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" (reset)="resetForm(form)">
             <input type="hidden" name="Id" name="Id"
             [(ngModel)]="serv.Cdata.Id" #Id="ngModel" [value]="serv.Cdata.Id">
             <div class="mb-4 pb-2">

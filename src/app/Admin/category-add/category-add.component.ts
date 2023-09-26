@@ -22,12 +22,10 @@ export class CategoryAddComponent implements OnInit{
     if(form!=null){
       form.form.reset();
     }
-    else{
       this.serv.Cdata={Id:0,CategoryName:''}
-    }
+    
   }
    onSubmit(form:NgForm){
-    console.log(this.serv.Cdata)
     if(this.serv.Cdata.Id==0){
       this.insertRecord(form);
     }
