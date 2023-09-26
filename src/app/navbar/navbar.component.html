@@ -19,11 +19,11 @@
         <li class="nav-item" [ngClass]="{'active':isActive('')}">
           <a class="nav-link" routerLink="/">Home</a>
         </li>
-        <li class="nav-item" [ngClass]="{'active':isActive('about')}">
+        <li class="nav-item" *ngIf="!isAdmin()" [ngClass]="{'active':isActive('about')}">
           <a class="nav-link" routerLink="/about">About</a>
         </li>
-        <li class="nav-item" [ngClass]="{'active':isActive('contact')}">
-          <a class="nav-link" routerLink="/contact">Contact</a>
+        <li class="nav-item" *ngIf="!isAdmin()" [ngClass]="{'active':isActive('contact')}">
+          <a class="nav-link" routerLink="/contact" >Contact</a>
         </li>
         <li class="nav-item" *ngIf="isAdmin()" >  
           <a class="nav-link" routerLink="/editproducts">Products</a>
@@ -40,9 +40,9 @@
 
     <div class="d-flex align-items-center">
       <a class="link-secondary me-3" data-bs-toggle="modal" data-bs-target="#cart" (click)="getOrderList()"
-        *ngIf="checkUserActive()">
+        *ngIf="checkUserActive() && !isAdmin()">
         <i class="fa fa-shopping-cart"></i>
-        <span class="badge rounded-pill badge-notification bg-danger" *ngIf="checkItemsInCart()>0">{{checkItemsInCart()}}</span>
+        <span class="badge rounded-pill badge-notification bg-danger" *ngIf="checkItemsInCart()>0 ">{{checkItemsInCart()}}</span>
       </a>
 
       <button type="button" *ngIf="checkUserActive()" class="btn btn-dark launch me-2" style="border-radius: 50%;"
