@@ -30,7 +30,7 @@ export class ApiServicesService {
 
   public singleData:Product=new Product();
 
-  public orderedProducts:OrderSummary[];
+  public orderedProducts:OrderSummary[]=[];
 
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {
@@ -43,26 +43,9 @@ export class ApiServicesService {
   };
 
   //for login
-  authenticateLogin(cred: Credential) {
-    this.http.post<AuthenticatedResponse>(this.apiURL + 'auth/login', cred, {
+  authenticateLogin(cred: Credential): Observable<any>{
+    return this.http.post<AuthenticatedResponse>(this.apiURL + 'auth/login', cred, {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
-    }).subscribe({
-      next: (response: AuthenticatedResponse) => {
-        localStorage.setItem("SecurityToken", response.Token);
-        localStorage.setItem("UserName", response.UserName);
-        localStorage.setItem("EmailId",response.EmailId);
-        localStorage.setItem("Phone",response.Phone);
-        alert("Login Successful");
-      },
-      error: (error: HttpErrorResponse) => {
-        console.log(error);
-        if (error.status == 401) {
-          alert("Invalid username or password");
-        }
-        else {
-          alert(error);
-        }
-      }
     });
   }
 

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServicesService } from '../Shared/api-services.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HomeComponent } from '../home/home.component';
+import { AuthenticatedResponse } from '../models/authenticated-response';
 
 @Component({
   selector: 'app-login',
@@ -33,14 +34,27 @@ export class LoginComponent implements OnInit{
     });
     }
     
-    login = ( form: FormGroup) => {
+    login( form: FormGroup){
       if (form.valid) {
-        this.serv.authenticateLogin(form.value)
-        setTimeout(()=>{  if(this.serv.isUserAuthenticated()){
-          this.router.navigate(['']);
-        }
-        }, 500);
-       
+        this.serv.authenticateLogin(form.value).subscribe({
+          next: (response: AuthenticatedResponse) => {
+            localStorage.setItem("SecurityToken", response.Token);
+            localStorage.setItem("UserName", response.UserName);
+            localStorage.setItem("EmailId",response.EmailId);
+            localStorage.setItem("Phone",response.Phone);
+            this.router.navigate(['']);
+            alert("Login Successful");
+          },
+          error: (error: HttpErrorResponse) => {
+            console.log(error);
+            if (error.status == 401) {
+              alert("Invalid username or password");
+            }
+            else {
+              alert(error);
+            }
+          }
+        });
       }
       else{
         alert("Invalid data");

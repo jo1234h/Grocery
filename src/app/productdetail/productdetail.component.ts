@@ -38,6 +38,7 @@ export class ProductdetailComponent implements OnInit{
     this.item.quantity=this.qty;
     this.item.pricePerProduct=price*this.qty;
     this.serv.orderedProducts.push(this.item);
+    alert('Product Added to the Cart')
   }
 
 }
