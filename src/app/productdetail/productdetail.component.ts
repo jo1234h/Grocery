@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServicesService } from '../Shared/api-services.service';
 import { Router } from '@angular/router';
-import { from } from 'rxjs';
 import { Product } from '../models/product';
-import { OrderSummary } from '../models/order-summary';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -40,13 +38,20 @@ decreaseItem(){
     }
   }
 
+  result:any={};
   addToCart(id:number,name:string,price:number){
-
+    this.result=this.serv.orderedProducts.find(ind=>ind.productId===id);
+    if(this.result==null){
     this.item.productId=id;
     this.item.productName=name;
     this.item.quantity=this.qty;
     this.item.pricePerProduct=price*this.qty;
     this.serv.orderedProducts.push(this.item);
+    }
+    else{
+      this.result.quantity+=this.qty;
+      this.result.pricePerProduct+=(this.qty*price);
+    }
     alert('Product Added to the Cart')
   }
 
