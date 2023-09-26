@@ -1,5 +1,9 @@
 input{
-    width: 30%;
+    width: 30px;
+    max-width: 60px;
+    text-align: center;
+    border: 1px solid aqua;
+    background-color: lightgray;
     
 }
 
@@ -16,7 +20,10 @@ img{
     width: 400px;
     height: 400px;
 }
-
+.counter-btn{
+    width: 40px !important;
+    text-align: center;
+}
 .minmax-width{
     min-width: 450px;
     max-width: 450px;

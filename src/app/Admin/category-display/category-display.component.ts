@@ -9,19 +9,30 @@ import { Category } from 'src/app/models/category';
 export class CategoryDisplayComponent implements OnInit {
   constructor(public serv:ApiServicesService){ }
   ngOnInit(): void {
-    this.serv.categoryList;
+    this.serv.GetAllCategory();
     
   }
   fillForm(selectedcat){
-    this.serv.categoryList=Object.assign({},selectedcat);
+    this.serv.Cdata=Object.assign({},selectedcat);
   }
-  delcategory(id){
-    this.serv.deleteCategory(id).subscribe(res=>{this.serv.categoryList;
-      alert("Category Deleted");},
-      err=>{alert("Error"+err);
-    }
-      );
-  }
+  delcategory(id)
+    {
+      if(confirm("Are you sure to delete this product?"))
+      {
+        this.serv.deleteCategory(id).subscribe
+        (
+          res=>
+          {
+            this.serv.GetAllCategory();
+            alert("Category Deleted!");
+          },
+          err=>
+          {
+            alert("Error "+err);
+          }
+        );
+      }
+    }  
 
 
 }

@@ -18,6 +18,10 @@ export class NavbarComponent implements OnInit
 
   ngOnInit(): void {
   }
+  checkItemsInCart(){
+    return this.serv.orderedProducts.length;
+  }
+
   getUserName(){
     return (localStorage.getItem("UserName")!=null)?localStorage.getItem("UserName"):'';
   }
