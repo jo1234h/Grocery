@@ -1,4 +1,4 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 
 <div class="row">
   <div class="col-md-3" style="background-color: white; height:auto;">
@@ -20,4 +20,24 @@
   <div class="col-sm-9">
     <app-subcategory></app-subcategory>
   </div>
+</div> -->
+
+
+
+<body>
+  <div class="row">
+<div class="col-md-2">
+  <div class="sidebar" >
+    <br>
+    <h4 style="text-align: center;">Category</h4>
+    <div  *ngFor="let category of serv.categoryList">
+    <a [class.selected]="isCategorySelected(category.Id)" (click)=onProductClick(category.Id)>{{category.CategoryName}}</a>
+  </div>
 </div>
+</div>
+  <div class="col-md-9">
+    <app-subcategory></app-subcategory>
+  </div>
+</div>
+  </body>
+  
