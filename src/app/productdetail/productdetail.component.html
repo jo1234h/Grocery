@@ -54,7 +54,7 @@
             <span>
               <button class="btn btn-primary me-2 custom-button"
                 (click)="addToCart(serv.pro.Id,serv.pro.ProductName,serv.pro.UnitPrice)">Add To Cart</button>
-              <button class="btn btn-primary ms-2 custom-button">Buy Now</button>
+              <button class="btn btn-primary ms-2 custom-button" data-bs-toggle="modal" data-bs-target="#cart" (click)="addToCart(serv.pro.Id,serv.pro.ProductName,serv.pro.UnitPrice)">Buy Now</button>
             </span>
           </div>
 
@@ -70,3 +70,4 @@
 <div *ngIf="!serv.productList || serv.productList.length === 0">
   <p>No products available.</p>
 </div>
+
