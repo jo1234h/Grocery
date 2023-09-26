@@ -20,4 +20,11 @@ onSubmit(Id:number){
   this.router.navigate(['products/',{categoryId:Id}]);
 }
 
+isAdmin(){
+  if(this.serv.isAdmin()==="Admin"){
+    return true;
+  }
+  return false;
+}
+
 }
