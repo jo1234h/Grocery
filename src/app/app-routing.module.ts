@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { SubcategoryComponent } from './subcategory/subcategory.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
 import { ProductEditComponent } from './Admin/product-edit/product-edit.component';
+import { CategoryDisplayComponent } from './Admin/category-display/category-display.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -23,7 +24,9 @@ const routes: Routes = [
   {path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
   {path: 'search', component: SearchresultComponent, canActivate: [AuthGuard] },
   {path: 'editproducts', component: ProductEditComponent },
+  {path: 'editcategory',component:CategoryDisplayComponent},
   {path:'**',redirectTo:'subcategory'},
+  
   
 ];
 
