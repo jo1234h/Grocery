@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: 'search', component: SearchresultComponent, canActivate: [AuthGuard] },
   {path: 'editproducts', component: ProductEditComponent,canActivate: [AdminGuard]  },
   {path: 'editcategory',component:CategoryDisplayComponent,canActivate: [AdminGuard]},
-  {path:'**',redirectTo:'subcategory'},
+ 
   
   
 ];
