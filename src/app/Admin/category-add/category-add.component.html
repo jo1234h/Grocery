@@ -1,4 +1,4 @@
-<div class="col-12 bg-primary text-white" style="height: 550px;">
+<div class="col-12 bg-primary text-white custom-container">
     <div class="p-5">
         <h3 class="fw-normal mb-4">Category Details</h3>
         <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" (reset)="resetForm(form)">
@@ -11,8 +11,8 @@
                         class="form-control form-control-lg" />
                     <label class="form-label" for="CategoryName">Category Name</label>
                 </div>
-                <button class="btn btn-danger me-2" type="submit" >Add / Update</button>
-                <button class="btn btn-info me-2" type="reset">Reset</button>
+                <button class="btn btn-danger mt-4 me-2" type="submit" >Add / Update</button>
+                <button class="btn btn-info mt-4 ms-2" type="reset">Reset</button>
             </div>
            
         </form>
