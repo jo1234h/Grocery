@@ -23,7 +23,6 @@ export class SearchresultComponent implements OnInit
      {
      const productName = params.get('productName'); // "+" is used to convert the parameter to a number
      const price=+params.get('price');
-     console.log(productName);
      // Now, you can use the categoryId to fetch products based on it
      this.serv.GetProductByNamePrice(productName, price);
    });
