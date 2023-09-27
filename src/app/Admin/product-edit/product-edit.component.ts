@@ -48,7 +48,7 @@ export class ProductEditComponent implements OnInit
      { 
        form.form.reset();
      }
-       this.serv.singleData={Id:0, ProductName:'',Description:'',UnitPrice:0, UnitsInStock:0,Discontinued:false,CategoryId:this.serv.singleData.CategoryId,CreatedDate:this.serv.singleData.CreatedDate,ModifiedDate:null}
+       this.serv.singleData={Id:0, ProductName:'',Description:'',UnitPrice:null, UnitsInStock:null,Discontinued:false,CategoryId:null,CreatedDate:this.serv.singleData.CreatedDate,ModifiedDate:null}
      
   }
 
