@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiServicesService } from '../Shared/api-services.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -14,7 +14,10 @@ import { AuthenticatedResponse } from '../models/authenticated-response';
 })
 export class LoginComponent implements OnInit{
 
-
+  @ViewChild('loginSuccess') modalbutton;
+  @ViewChild('loginFailed') loginbutton;
+  @ViewChild('invalidButton') invalidbutton;
+  
   loginForm!:FormGroup;  
 
   //for login
@@ -42,24 +45,33 @@ export class LoginComponent implements OnInit{
             localStorage.setItem("UserName", response.UserName);
             localStorage.setItem("EmailId",response.EmailId);
             localStorage.setItem("Phone",response.Phone);
+            this.modalbutton.nativeElement.click();
             this.router.navigate(['']);
-            alert("Login Successful");
           },
           error: (error: HttpErrorResponse) => {
             console.log(error);
             if (error.status == 401) {
-              alert("Invalid username or password");
+              this.invalidbutton.nativeElement.click();
             }
             else {
-              alert(error);
+              this.loginbutton.nativeElement.click();
             }
           }
         });
       }
       else{
-        alert("Invalid data");
+        this.invalidbutton.nativeElement.click();
       }
       form.reset();
+    }
+
+    checkUserActive():boolean{
+      if(this.serv.isUserAuthenticated()){
+        return true;
+      }
+      else{
+        return false;
+      }
     }
 }
 

@@ -84,3 +84,46 @@
     </div>
   </div>
 </section>
+
+
+<!-- Modal HTML -->
+<button hidden class="btn btn-primary" #loginSuccess data-bs-toggle="modal" data-bs-target="#my-modal">Authentication</button>
+<div id="my-modal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>
+				<span type="button" class="close text-white text-light" data-bs-dismiss="modal" aria-hidden="true">&times;</span>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Logged In!</h4>	
+				<p>You have logged in successfully.</p>
+				<button class="btn btn-success" data-bs-dismiss="modal"><span>Start Shopping</span> <i class="material-icons">&#xE5C8;</i></button>
+			</div>
+		</div>
+	</div>
+</div>     
+
+
+
+<!-- Modal HTML -->
+<button hidden #loginFailed class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my-login-modal">Authentication</button>
+<div id="my-login-modal" class="modal fade failed-modal">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>
+				<span type="button" class="close text-white text-light" data-bs-dismiss="modal" aria-hidden="true">&times;</span>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Ooops! Login Failed</h4>	
+				<p>Something went wrong. Please try again.</p>
+				<button class="btn btn-success" data-bs-dismiss="modal">Try Again</button>
+			</div>
+		</div>
+	</div>
+</div>  

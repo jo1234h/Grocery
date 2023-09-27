@@ -23,9 +23,9 @@
           <a class="nav-link" routerLink="/about">About</a>
         </li>
         <li class="nav-item" *ngIf="!isAdmin()" [ngClass]="{'active':isActive('contact')}">
-          <a class="nav-link" routerLink="/contact" >Contact</a>
+          <a class="nav-link" routerLink="/contact">Contact</a>
         </li>
-        <li class="nav-item" *ngIf="isAdmin()" >  
+        <li class="nav-item" *ngIf="isAdmin()">
           <a class="nav-link" routerLink="/editproducts">Products</a>
         </li>
         <li class="nav-item" *ngIf="isAdmin()">
@@ -42,7 +42,8 @@
       <a class="link-secondary me-3" data-bs-toggle="modal" data-bs-target="#cart" (click)="getOrderList()"
         *ngIf="checkUserActive() && !isAdmin()">
         <i class="fa fa-shopping-cart"></i>
-        <span class="badge rounded-pill badge-notification bg-danger" *ngIf="checkItemsInCart()>0 ">{{checkItemsInCart()}}</span>
+        <span class="badge rounded-pill badge-notification bg-danger"
+          *ngIf="checkItemsInCart()>0 ">{{checkItemsInCart()}}</span>
       </a>
 
       <button type="button" *ngIf="checkUserActive()" class="btn btn-dark launch me-2" style="border-radius: 50%;"
@@ -56,9 +57,9 @@
   </div>
 </nav>
 
-  <div *ngIf="isAdmin()" class="d-flex justify-content-center align-items-center text-center bg-dark text-warning">
-    <h4>ADMINISTRATOR ACCESS</h4>
-  </div>
+<div *ngIf="isAdmin()" class="d-flex justify-content-center align-items-center text-center bg-dark text-warning">
+  <h4>ADMINISTRATOR ACCESS</h4>
+</div>
 
 
 
@@ -67,8 +68,8 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-body bg-light">
-        <div class="text-right" > 
-          <i class="fa fa-close close text-dark" style="float: right;" data-bs-dismiss="modal"></i> 
+        <div class="text-right">
+          <i class="fa fa-close close text-dark" style="float: right;" data-bs-dismiss="modal"></i>
         </div>
 
         <div class="row">
@@ -107,8 +108,9 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body ">
-        <div class="text-right"> <i class="fa fa-close close text-dark" style="float: right;" data-bs-dismiss="modal"></i> </div>
-        <div class="px-2 py-1"> 
+        <div class="text-right"> <i class="fa fa-close close text-dark" style="float: right;"
+            data-bs-dismiss="modal"></i> </div>
+        <div class="px-2 py-1">
           <span class="theme-color">Order Summary</span>
           <div class="mb-3">
             <hr class="new1">
@@ -119,15 +121,17 @@
                 <div class="card m-1">
                   <div class="row align-items-center">
                     <div class="col-md-3">
-                      <img src="assets/Images/products/{{item.productName}}.jpg" onerror="this.src='assets/Images/item.jpg';" alt="Product Image" loading="lazy" height="100px" width="100px">
+                      <img src="assets/Images/products/{{item.productName}}.jpg"
+                        onerror="this.src='assets/Images/item.jpg';" alt="Product Image" loading="lazy" height="100px"
+                        width="100px">
                     </div>
                     <div class="col-md-6 mt-2">
-                      
-                        <h5 class="m-0 p-0">{{item.productName}}</h5>
-                        Qty:{{item.quantity}}
-                        <br>
-                        Price: <i class="fa fa-light fa-indian-rupee-sign"></i>{{item.pricePerProduct}}
-                        
+
+                      <h5 class="m-0 p-0">{{item.productName}}</h5>
+                      Qty:{{item.quantity}}
+                      <br>
+                      Price: <i class="fa fa-light fa-indian-rupee-sign"></i>{{item.pricePerProduct}}
+
                     </div>
                     <div class="col-md-3 jalign-self-center">
                       <button class="btn" (click)="removeItem(item.productId)"><i class="fa fa-trash fa-solid fa-2xl"
@@ -137,7 +141,7 @@
                 </div>
 
               </ul>
-              
+
             </div>
             <div class="d-flex justify-content-between">
               <small>Delivery charges</small>
@@ -145,7 +149,8 @@
             </div>
             <div class="d-flex justify-content-between mt-3">
               <span class="font-weight-bold">Total</span>
-              <span class="font-weight-bold theme-color"><i class="fa fa-light fa-indian-rupee-sign"></i>{{calculateTotal()}}</span>
+              <span class="font-weight-bold theme-color"><i
+                  class="fa fa-light fa-indian-rupee-sign"></i>{{calculateTotal()}}</span>
 
             </div>
             <div class="text-center mt-5">
@@ -163,3 +168,31 @@
   </div>
 
 
+
+  <button hidden type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#order-placed">Open Modal</button>
+
+  <!-- Modal -->
+  <div #orderPlaced id="order-placed" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <a class="close" href="#" data-bs-dismiss="modal">&times;</a>
+        <div class="page-body">
+          <div class="head">
+            <h3 style="margin-top:5px;">Order Placed</h3>
+            <h4>Continue Shopping</h4>
+          </div>
+
+          <h1 style="text-align:center;">
+            <div class="checkmark-circle">
+              <div class="background"></div>
+              <div class="checkmark draw"></div>
+            </div>
+          </h1>
+
+        </div>
+      </div>
+    </div>
+
+  </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ApiServicesService } from 'src/app/Shared/api-services.service';
 import { Category } from 'src/app/models/category';
 @Component({
@@ -7,7 +8,7 @@ import { Category } from 'src/app/models/category';
   styleUrls: ['./category-display.component.css']
 })
 export class CategoryDisplayComponent implements OnInit {
-  constructor(public serv:ApiServicesService){ }
+  constructor(public serv:ApiServicesService,private toastr:ToastrService){ }
   ngOnInit(): void {
     this.serv.GetAllCategory();
     
@@ -24,15 +25,20 @@ export class CategoryDisplayComponent implements OnInit {
           res=>
           {
             this.serv.GetAllCategory();
-            alert("Category Deleted!");
+            this.showDeleteSuccess();
           },
           err=>
           {
-            alert("Error "+err);
+            this.showDeleteError();
           }
         );
       }
     }  
-
+    showDeleteSuccess(){
+      this.toastr.success("Product updated");
+    }
+    showDeleteError(){
+      this.toastr.error("Updation failed");
+    }
 
 }

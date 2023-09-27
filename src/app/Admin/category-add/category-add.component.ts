@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { ApiServicesService } from 'src/app/Shared/api-services.service';
 import { Category } from 'src/app/models/category';
 @Component({
@@ -8,7 +9,7 @@ import { Category } from 'src/app/models/category';
   styleUrls: ['./category-add.component.css']
 })
 export class CategoryAddComponent implements OnInit{
-  constructor(public serv:ApiServicesService) {
+  constructor(public serv:ApiServicesService,private toastr:ToastrService) {
     
   }
   
@@ -37,10 +38,10 @@ export class CategoryAddComponent implements OnInit{
     this.serv.AddCategory(this.serv.Cdata).subscribe(res=>
       {this.resetForm(form);
     this.serv.GetAllCategory();
-    alert('Category Added!!!')
+    this.showInsertSuccess();
     },
     err=>{
-      alert('Error'+err);
+      this.showInsertError();
     }
     )
   }
@@ -50,12 +51,24 @@ export class CategoryAddComponent implements OnInit{
         this.resetForm();
         this.serv.GetAllCategory();
        // this.cat=res.value;
-        alert('Record Updated!!!');
+        this.showUpdateSuccess();
       },
       err=>{
-        alert('Error!!'+err);
+        this.showUpdateError();
       }
       )
   }
-  
+
+  showInsertSuccess(){
+    this.toastr.success("Category added");
+  }
+  showInsertError(){
+    this.toastr.error("Insertion failed");
+  }
+  showUpdateSuccess(){
+    this.toastr.success("Category updated");
+  }
+  showUpdateError(){
+    this.toastr.error("Updation failed");
+  }
 }

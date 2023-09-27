@@ -23,6 +23,7 @@ import { CategoryDisplayComponent } from './Admin/category-display/category-disp
 import { ProductEditComponent } from './Admin/product-edit/product-edit.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin-guard.guard';
+import { ToastrModule } from 'ngx-toastr';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -55,6 +56,7 @@ export function tokenGetter() {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({}),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

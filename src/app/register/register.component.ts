@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Register } from '../models/register.model';
 import { Route, Router } from '@angular/router';
@@ -13,7 +13,10 @@ import { ApiServicesService } from '../Shared/api-services.service';
 export class RegisterComponent implements OnInit {    
   data = false;    
   UserForm: any;    
-  message:string;    
+  message:string;   
+  @ViewChild('loginSuccess') modalbutton;
+  @ViewChild('loginFailed') invalidbutton; 
+
   constructor(private formbulider: FormBuilder,private loginService:ApiServicesService,private router:Router) { }    
     
   ngOnInit() {    
@@ -34,14 +37,20 @@ export class RegisterComponent implements OnInit {
   }    
   CreateUser(register:Register)    
   {    
-    this.loginService.CreateUser(register).subscribe(    
-     ()=>    
+    this.loginService.CreateUser(register).subscribe(  {  
+     next:()=>    
      {    
        this.data = true;    
        this.message = 'Data saved Successfully';    
-       this.UserForm.reset();    
+       this.UserForm.reset();  
+       this.modalbutton.nativeElement.click();  
        this.router.navigate(['login'])
-     });  
+     },
+     error:()=> 
+     {
+      this.invalidbutton.nativeElement.click(); 
+     }
+    });  
   }    
 }   
 
