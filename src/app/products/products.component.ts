@@ -37,12 +37,6 @@ isCategorySelected(categoryId: number): boolean {
 }
 
 
-
-
- // can user serv.productList in html to get the values of categories from database
- // need to pass the value into the getproductbycategory from the url
- // this comment need to be removed before submission
-
 }
 
 
