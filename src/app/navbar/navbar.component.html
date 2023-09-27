@@ -3,7 +3,7 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
-    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
@@ -47,24 +47,6 @@
 
       <button type="button" *ngIf="checkUserActive()" class="btn btn-dark launch me-2" style="border-radius: 50%;"
         data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i class="fa fa-user"></i></button>{{getUserName()}}
-
-      <!-- Avatar -->
-      <!-- <div class="dropdown" *ngIf="checkUserActive()">
-        <a class="dropdown-toggle d-flex align-items-center" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-          <img  src="https://www.dpforwhatsapp.in/img/no-dp-images/7.webp" class="rounded-circle" height="25" loading="lazy" />
-        </a> 
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-          <li>
-            <a class="dropdown-item" href="#">My profile</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Settings</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Logout</a>
-          </li>
-        </ul>
-      </div> -->
       <button type="button" class="btn btn-outline-secondary" *ngIf="!checkUserActive()"
         routerLink="register">Register</button>
       &nbsp;
@@ -137,7 +119,7 @@
                 <div class="card m-1">
                   <div class="row align-items-center">
                     <div class="col-md-3">
-                      <img src="assets/Images/products/{{item.productName}}.jpg" alt="Product Image" loading="lazy" height="100px" width="100px">
+                      <img src="assets/Images/products/{{item.productName}}.jpg" onerror="this.src='assets/Images/item.jpg';" alt="Product Image" loading="lazy" height="100px" width="100px">
                     </div>
                     <div class="col-md-6 mt-2">
                       
@@ -181,60 +163,3 @@
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- 
-
-<nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Groccery App</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="products">Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  routerLink="productdetail">Product Detail</a>
-          </li>
-         <li class="nav-item">
-        </ul>
-
-        <label  class="m-2" *ngIf="checkUserActive()">Welcome {{username}}</label>
-  
-        <button type="button" class="btn btn-outline-dark" *ngIf="!checkUserActive()" routerLink="login">Login</button>
-        <button type="button" class="btn btn-outline-dark" *ngIf="checkUserActive()" (click)="logout()">Logout</button>
-
-
-      </div>
-    </div>
-  </nav> -->

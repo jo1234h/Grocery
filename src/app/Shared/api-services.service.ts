@@ -142,8 +142,6 @@ export class ApiServicesService {
 
 
   isAdmin(){
-    //return this.http.get(this.apiURL + 'admin');
-    //return this.http.get(this.apiURL + 'admin');//.subscribe(response => console.log(response.json()))
     const token = localStorage.getItem("SecurityToken");
     if(token)
     {
