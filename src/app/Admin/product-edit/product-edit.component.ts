@@ -109,9 +109,9 @@ export class ProductEditComponent implements OnInit
     this.toastr.error("Updation failed");
   }
   showDeleteSuccess(){
-    this.toastr.success("Product updated");
+    this.toastr.success("Product deleted");
   }
   showDeleteError(){
-    this.toastr.error("Updation failed");
+    this.toastr.error("Deletion failed");
   }
 }

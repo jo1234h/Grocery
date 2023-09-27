@@ -35,10 +35,10 @@ export class CategoryDisplayComponent implements OnInit {
       }
     }  
     showDeleteSuccess(){
-      this.toastr.success("Product updated");
+      this.toastr.success("Category deleted");
     }
     showDeleteError(){
-      this.toastr.error("Updation failed");
+      this.toastr.error("Deletion failed");
     }
 
 }
