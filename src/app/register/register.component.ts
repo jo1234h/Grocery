@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Register } from '../models/register.model';
 import { Route, Router } from '@angular/router';
@@ -10,14 +10,20 @@ import { ApiServicesService } from '../Shared/api-services.service';
   styleUrls: ['./register.component.css']
 })
 
-export class RegisterComponent implements OnInit {    
+export class RegisterComponent implements OnInit 
+{    
   data = false;    
   UserForm: any;    
-  message:string;    
+  message:string;   
+  @ViewChild('loginSuccess') modalbutton;
+  @ViewChild('loginFailed') invalidbutton; 
+
   constructor(private formbulider: FormBuilder,private loginService:ApiServicesService,private router:Router) { }    
     
-  ngOnInit() {    
-    this.UserForm = this.formbulider.group({    
+  ngOnInit() 
+  {    
+    this.UserForm = this.formbulider.group
+    ({    
       FirstName: ['', [Validators.required]],    
       LastName: ['', [Validators.required]],  
       Gender:['',[Validators.required]],
@@ -27,21 +33,30 @@ export class RegisterComponent implements OnInit {
       Password: ['', [Validators.required]], 
     });    
   }    
-   onFormSubmit()    
+
+  onFormSubmit()    
   {    
     const user = this.UserForm.value;    
     this.CreateUser(user);    
   }    
+
   CreateUser(register:Register)    
   {    
-    this.loginService.CreateUser(register).subscribe(    
-     ()=>    
-     {    
-       this.data = true;    
-       this.message = 'Data saved Successfully';    
-       this.UserForm.reset();    
-       this.router.navigate(['login'])
-     });  
+    this.loginService.CreateUser(register).subscribe
+    ({  
+      next:()=>    
+      {    
+        this.data = true;    
+        this.message = 'Data saved Successfully';    
+        this.UserForm.reset();  
+        this.modalbutton.nativeElement.click();  
+        this.router.navigate(['login'])
+      },
+      error:()=> 
+      {
+        this.invalidbutton.nativeElement.click(); 
+      }
+    });  
   }    
 }   
 

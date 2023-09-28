@@ -40,3 +40,162 @@
 
     </form>
 </div>
+
+
+<!-- Modal HTML -->
+<button hidden class="btn btn-primary" #loginSuccess data-bs-toggle="modal" data-bs-target="#my-modal">Authentication</button>
+<div id="my-modal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>
+				<span type="button" class="close text-white text-light" data-bs-dismiss="modal" aria-hidden="true">&times;</span>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Logged In!</h4>	
+				<p>You have logged in successfully.</p>
+				<button class="btn btn-success" data-bs-dismiss="modal"><span>Start Shopping</span> <i class="material-icons">&#xE5C8;</i></button>
+			</div>
+		</div>
+	</div>
+</div>     
+
+
+
+<!-- Modal HTML -->
+<button hidden #loginFailed class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my-login-modal">Authentication</button>
+<div id="my-login-modal" class="modal fade failed-modal">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>
+				<span type="button" class="close text-white text-light" data-bs-dismiss="modal" aria-hidden="true">&times;</span>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Ooops! Login Failed</h4>	
+				<p>Something went wrong. Please try again.</p>
+				<button class="btn btn-success" data-bs-dismiss="modal">Try Again</button>
+			</div>
+		</div>
+	</div>
+</div>  
+
+
+<button hidden #invalidButton class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my-invalid-modal">Authentication</button>
+<div id="my-invalid-modal" class="modal fade failed-modal">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>
+				<span type="button" class="close text-white text-light" data-bs-dismiss="modal" aria-hidden="true">&times;</span>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Ooops! Login Failed!</h4>	
+				<p>Invalid username or password</p>
+				<button class="btn btn-success" data-bs-dismiss="modal">Try Again</button>
+			</div>
+		</div>
+	</div>
+</div>  
+
+
+<!-- <button hidden #invalidButton class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my-invalid-modal">Authentication</button>
+  <div id="my-invalid-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered justify-content-center " role="document">
+          <div class="modal-content  border-0 mx-3">   
+              <div class="modal-body  p-0">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                          <div class="card border-0 justify-content-center "> 
+                              <div class="card-header pb-0 bg-white text-center" >  
+                                  <div class="row mb-0 justify-content-end"><div class="col-3"><img class="img-fluid cross  mb-auto" src="https://i.imgur.com/YFpQ0hW.jpg" data-bs-dismiss="modal"></div></div>  
+                                  <div class="row mt-0"><div class="col"><img class="img-fluid text-center" src="https://i.imgur.com/mrLvCJy.jpg"></div></div>
+                              </div>
+                              <div class="card-body text-center px-md-5 mb-3 text-light"><h6 class="card-title card-2 font-weight-bold">Login error</h6><p class="mb-0">Invalid username or password!</p>
+                                  <div class="row justify-content-center mt-4"><div class="col-10"><button type="button" class="btn btn-success btn-block font-weight-bold text-dark try" data-bs-dismiss="modal">Try again</button></div></div>
+                              </div>
+                          </div>
+                      </div>
+                   </div>
+              </div>
+          </div>
+      </div>
+  </div> -->
+
+
+  <!-- <button hidden class="btn btn-primary" #loginSuccess data-bs-toggle="modal" data-bs-target="#my-modal">Authentication</button>
+  <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered justify-content-center " role="document">
+          <div class="modal-content  border-0 mx-3">   
+              <div class="modal-body  p-0">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                          <div class="card border-0 justify-content-center"> 
+                              <div class="card-header pb-0 bg-white text-center" >  
+                                  <div class="row mb-0 justify-content-end"><div class="col-3"><img class="img-fluid cross  mb-auto " src="https://i.imgur.com/YFpQ0hW.jpg" data-bs-dismiss="modal"></div></div>  
+                                  <div class="row mt-0"><div class="col"><img class="img-fluid text-center" src="https://i.imgur.com/kmvY5wU.jpg"></div></div>
+                              </div>
+                              <div class="card-body text-center px-lg-5 px-md-4 mb-3"><h6 class="card-title card-1 font-weight-bold">Successful Login</h6><p class="text-white">Login Successful,continue Shopping</p>
+                                  <div class="row justify-content-center mt-4"><div class="col-8"><button type="button" class="btn btn-success btn-block font-weight-bold text-dark mt-3" data-bs-dismiss="modal">Continue</button></div></div>
+                              </div>
+                          </div>
+                      </div>
+                   </div>
+              </div>
+          </div>
+      </div>
+  </div> -->
+
+  
+
+  <!-- <button hidden #loginFailed class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my-login-modal">Authentication</button>
+  <div id="my-login-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered justify-content-center " role="document">
+          <div class="modal-content  border-0 mx-3">   
+              <div class="modal-body  p-0">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                          <div class="card border-0 justify-content-center "> 
+                              <div class="card-header pb-0 bg-white text-center" >  
+                                  <div class="row mb-0 justify-content-end"><div class="col-3"><img class="img-fluid cross  mb-auto" src="https://i.imgur.com/YFpQ0hW.jpg" data-bs-dismiss="modal"></div></div>  
+                                  <div class="row mt-0"><div class="col"><img class="img-fluid text-center" src="https://i.imgur.com/mrLvCJy.jpg"></div></div>
+                              </div>
+                              <div class="card-body text-center px-md-5 mb-3 text-light"><h6 class="card-title card-2 font-weight-bold">Login error</h6><p class="mb-0">Please try again, if problem persists, please contact us.</p>
+                                  <div class="row justify-content-center mt-4"><div class="col-10"><button type="button" class="btn btn-success btn-block font-weight-bold text-dark try" data-bs-dismiss="modal">Try again</button></div></div>
+                              </div>
+                          </div>
+                      </div>
+                   </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <button hidden #invalidButton class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my-invalid-modal">Authentication</button>
+  <div id="my-invalid-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered justify-content-center " role="document">
+          <div class="modal-content  border-0 mx-3">   
+              <div class="modal-body  p-0">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                          <div class="card border-0 justify-content-center "> 
+                              <div class="card-header pb-0 bg-white text-center" >  
+                                  <div class="row mb-0 justify-content-end"><div class="col-3"><img class="img-fluid cross  mb-auto" src="https://i.imgur.com/YFpQ0hW.jpg" data-bs-dismiss="modal"></div></div>  
+                                  <div class="row mt-0"><div class="col"><img class="img-fluid text-center" src="https://i.imgur.com/mrLvCJy.jpg"></div></div>
+                              </div>
+                              <div class="card-body text-center px-md-5 mb-3 text-light"><h6 class="card-title card-2 font-weight-bold">Login error</h6><p class="mb-0">Invalid username or password!</p>
+                                  <div class="row justify-content-center mt-4"><div class="col-10"><button type="button" class="btn btn-success btn-block font-weight-bold text-dark try" data-bs-dismiss="modal">Try again</button></div></div>
+                              </div>
+                          </div>
+                      </div>
+                   </div>
+              </div>
+          </div>
+      </div>
+  </div> -->

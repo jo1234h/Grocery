@@ -1,3 +1,336 @@
 .large-icon{
     font-size:50px;
 }
+
+body {
+	font-family: 'Varela Round', sans-serif;
+}
+#my-modal .modal-confirm {		
+	color: #434e65;
+	width: 525px;
+}
+#my-modal .modal-confirm .modal-content {
+	padding: 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: none;
+}
+#my-modal .modal-confirm .modal-header {
+	background: #47c9a2;
+	border-bottom: none;   
+	position: relative;
+	text-align: center;
+	margin: -20px -20px 0;
+	border-radius: 5px 5px 0 0;
+	padding: 35px;
+}
+#my-modal .modal-confirm h4 {
+	text-align: center;
+	font-size: 36px;
+	margin: 10px 0;
+}
+#my-modal .modal-confirm .form-control, .modal-confirm .btn {
+	min-height: 40px;
+	border-radius: 3px; 
+}
+#my-modal .modal-confirm .close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	color: #fff;
+	text-shadow: none;
+	opacity: 0.5;
+}
+#my-modal .modal-confirm .close:hover {
+	opacity: 0.8;
+}
+#my-modal .modal-confirm .icon-box {
+	color: #fff;		
+	width: 95px;
+	height: 95px;
+	display: inline-block;
+	border-radius: 50%;
+	z-index: 9;
+	border: 5px solid #fff;
+	padding: 15px;
+	text-align: center;
+}
+#my-modal .modal-confirm .icon-box i {
+	font-size: 64px;
+	margin: -4px 0 0 -4px;
+}
+#my-modal .modal-confirm.modal-dialog {
+	margin-top: 80px;
+}
+#my-modal .modal-confirm .btn, #my-modal .modal-confirm .btn:active {
+	color: #fff;
+	border-radius: 4px;
+	background: #eeb711 !important;
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	border-radius: 30px;
+	margin-top: 10px;
+	padding: 6px 20px;
+	border: none;
+}
+#my-modal .modal-confirm .btn:hover, #my-modal .modal-confirm .btn:focus {
+	background: #eda645 !important;
+	outline: none;
+}
+#my-modal .modal-confirm .btn span {
+	margin: 1px 3px 0;
+	float: left;
+}
+#my-modal .modal-confirm .btn i {
+	margin-left: 1px;
+	font-size: 20px;
+	float: right;
+}
+#my-modal .trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
+}
+
+
+
+.failed-modal .modal-confirm {		
+	color: #434e65;
+	width: 525px;
+}
+.failed-modal .modal-confirm .modal-content {
+	padding: 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: none;
+}
+.failed-modal .modal-confirm .modal-header {
+	background: #e85e6c;
+	border-bottom: none;   
+	position: relative;
+	text-align: center;
+	margin: -20px -20px 0;
+	border-radius: 5px 5px 0 0;
+	padding: 35px;
+}
+.failed-modal .modal-confirm h4 {
+	text-align: center;
+	font-size: 36px;
+	margin: 10px 0;
+}
+.failed-modal .modal-confirm .form-control, .failed-modal .modal-confirm .btn {
+	min-height: 40px;
+	border-radius: 3px; 
+}
+.failed-modal .modal-confirm .close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	color: #fff;
+	text-shadow: none;
+	opacity: 0.5;
+}
+.failed-modal .modal-confirm .close:hover {
+	opacity: 0.8;
+}
+.failed-modal .modal-confirm .icon-box {
+	color: #fff;		
+	width: 95px;
+	height: 95px;
+	display: inline-block;
+	border-radius: 50%;
+	z-index: 9;
+	border: 5px solid #fff;
+	padding: 15px;
+	text-align: center;
+}
+.failed-modal .modal-confirm .icon-box i {
+	font-size: 58px;
+	margin: -2px 0 0 -2px;
+}
+.failed-modal .modal-confirm .modal-dialog {
+	margin-top: 80px;
+}
+.failed-modal .modal-confirm .btn, .failed-modal .modal-confirm .btn:active {
+	color: #fff;
+	border-radius: 4px;
+	background: #eeb711 !important;
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	border-radius: 30px;
+	margin-top: 10px;
+	padding: 6px 20px;
+	min-width: 150px;
+	border: none;
+}
+.failed-modal .modal-confirm .btn:hover, .failed-modal .modal-confirm .btn:focus {
+	background: #eda645 !important;
+	outline: none;
+}
+.failed-modal .trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
+}
+
+
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+body {
+    min-height: 81.8vh;
+    font-family: 'Roboto Mono', monospace;
+    background: linear-gradient(#dfedf3, #fdeffd);
+}
+
+p{
+    font-size: calc(12px + (13 - 12) * ((100vw - 360px) / (1600 - 300))) !important;;
+}
+
+
+button:focus {
+    box-shadow: none !important;
+    outline-width: 0;
+}
+
+.card{
+    background:#222222;
+    border-radius:11px !important;
+    width: calc(280px + 10 * ((100vw - 320px) / 680)) ;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5) ;
+}
+
+.card-header{
+    border:0;
+    border-radius:11px !important;
+    
+}
+.card-header{
+    background:#222222 !important;
+    position: relative;
+}
+
+img{
+    width: 100px !important;
+}
+
+.card-body{
+    border-radius: 9px !important;
+}
+
+.card-2{
+    color: #FF97B7;
+}
+
+.cross{
+    cursor: pointer;
+    width: 45px !important;
+    z-index: 1 !important;
+}
+
+.imp{
+    color: #FF97B7;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.try{
+    background-color: #FF97B7 !important;
+    border: 0;
+}
+
+.try:hover{
+    background-color: #FF97B7 !important;
+}
+
+.modal{
+    background: linear-gradient(#03a9f4, #e91ee3) !important;
+}
+
+.modal-content{
+    background: transparent !important;
+}
+
+.btn-success{
+    border-radius: 20px !important;
+    background-color: #9BEAC0 !important;
+
+}
+
+.btn-success:hover{
+    background-color: #9BEAC0 !important;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+body {
+    min-height: 81.9vh;
+    font-family: 'Roboto Mono', monospace;
+    background: linear-gradient(#c1e2f1, #f7e8f6);
+}
+
+
+p{
+    font-size: calc(12px + (13 - 12) * ((100vw - 360px) / (1600 - 300))) !important;;
+}
+
+
+button:focus {
+    box-shadow: none !important;
+    outline-width: 0;
+}
+
+.card{
+    background:#222222;
+    border-radius:11px !important;
+    width: calc(280px + 10 * ((100vw - 320px) / 680)) ;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5) ;
+}
+
+.card-header{
+    border:0;
+    border-radius:11px !important;
+    
+}
+
+.btn-success{
+    border-radius: 20px !important;
+    background-color: #9BEAC0 !important;
+
+}
+
+.btn-success:hover{
+    background-color: #9BEAC0 !important;
+}
+
+
+.card-header{
+    background:#222222 !important;
+    position: relative;
+}
+
+img{
+    width: 100px !important;
+}
+
+.card-body{
+    border-radius: 9px !important;
+}
+
+.card-1{
+    color: #A4EAC0 !important;
+}
+
+.cross{
+    cursor: pointer;
+    width: 45px !important;
+}
+
+.modal{
+    background: linear-gradient(#03a9f4, #e91ee3) !important;
+}
+
+
+.modal-content{
+    background: transparent !important;
+} */

@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { ApiServicesService } from 'src/app/Shared/api-services.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ApiServicesService } from 'src/app/Shared/api-services.service';
 
 export class ProductEditComponent implements OnInit
 {
-  constructor(public serv:ApiServicesService){}
+  constructor(public serv:ApiServicesService,private toastr:ToastrService){}
 
   ngOnInit():void
   {
@@ -32,11 +33,11 @@ export class ProductEditComponent implements OnInit
           res=>
           {
             this.serv.GetAllProducts();
-            alert("Product Deleted!");
+            this.showDeleteSuccess();
           },
           err=>
           {
-            alert("Error "+err);
+            this.showDeleteError();
           }
         );
       }
@@ -71,11 +72,11 @@ export class ProductEditComponent implements OnInit
       {
         this.resetForm(form);
         this.serv.GetAllProducts();
-        alert('Product Insertion Success!!!');
+        this.showInsertSuccess();
       },
       err=>
       { 
-        alert('Error!!!'+err);
+        this.showInsertError();
       }
     )
   }
@@ -87,12 +88,30 @@ export class ProductEditComponent implements OnInit
       {
        this.resetForm(form);
        this.serv.GetAllProducts();
-       alert('Product Updated!');
+       this.showUpdateSuccess();
       },
       err=>
       {
-        alert('Error!!!'+err);
+        this.showUpdateError();
       }
     )
   }   
+  showInsertSuccess(){
+    this.toastr.success("Product added");
+  }
+  showInsertError(){
+    this.toastr.error("Insertion failed");
+  }
+  showUpdateSuccess(){
+    this.toastr.success("Product updated");
+  }
+  showUpdateError(){
+    this.toastr.error("Updation failed");
+  }
+  showDeleteSuccess(){
+    this.toastr.success("Product deleted");
+  }
+  showDeleteError(){
+    this.toastr.error("Deletion failed");
+  }
 }

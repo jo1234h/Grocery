@@ -54,7 +54,10 @@
               <div class="row">
                 <div class="col-md-6 mb-4 pb-2">
                   <div class="form-outline">
-                    <input type="email" id="emailAddress" class="form-control" placeholder="Email" formControlName="EmailId">                   
+                    <input id="EmailId" type="email" id="emailAddress" class="form-control" placeholder="Email" formControlName="EmailId">                   
+                  </div>
+                  <div *ngIf="UserForm.get('EmailId')?.invalid && UserForm.get('EmailId')?.touched" class="invalid-feedback text-danger ps-1">
+                    Please enter a valid emailId.
                   </div>
                 </div>
 
@@ -73,7 +76,7 @@
 
               <div class="text-center">
                 <div class="mt-4 pt-2">
-                  <button type="submit" class="btn btn-block btn-primary">Register</button>  
+                  <button type="submit" class="btn btn-block btn-primary" [disabled]="UserForm.invalid">Register</button>  
                 </div>
               </div>
               
@@ -84,3 +87,46 @@
     </div>
   </div>
 </section>
+
+
+<!-- Modal HTML -->
+<button hidden class="btn btn-primary" #loginSuccess data-bs-toggle="modal" data-bs-target="#my-modal">Authentication</button>
+<div id="my-modal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>
+				<span type="button" class="close text-white text-light" data-bs-dismiss="modal" aria-hidden="true">&times;</span>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Registration Success!</h4>	
+				<p>Login To Your Account.</p>
+				<button class="btn btn-success" data-bs-dismiss="modal"><span>Login</span> <i class="material-icons">&#xE5C8;</i></button>
+			</div>
+		</div>
+	</div>
+</div>     
+
+
+
+<!-- Modal HTML -->
+<button hidden #loginFailed class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my-login-modal">Authentication</button>
+<div id="my-login-modal" class="modal fade failed-modal">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>
+				<span type="button" class="close text-white text-light" data-bs-dismiss="modal" aria-hidden="true">&times;</span>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Ooops! Register Failed</h4>	
+				<p>Something went wrong. Please try again later.</p>
+				<button class="btn btn-success" data-bs-dismiss="modal">Try Again</button>
+			</div>
+		</div>
+	</div>
+</div>  
