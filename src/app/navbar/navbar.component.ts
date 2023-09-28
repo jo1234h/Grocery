@@ -99,7 +99,7 @@ export class NavbarComponent implements OnInit
   }
 
   PlaceOrder() 
-  {
+  {try{
     this.serv.orderedProducts.forEach(element => 
     {
       this.serv.singleData = this.serv.productList.find(item => item.Id == element.productId);
@@ -108,7 +108,9 @@ export class NavbarComponent implements OnInit
       {
         this.serv.GetAllCategory();
       });
-    });
+    });}
+    catch
+    {}
     this.serv.orderedProducts = [];
     this.orderplaced.nativeElement.click();
     alert('Your order has been placed.\nPay the amount at the time of delivery');  
