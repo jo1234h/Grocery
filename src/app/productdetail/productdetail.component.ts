@@ -3,6 +3,7 @@ import { ApiServicesService } from '../Shared/api-services.service';
 import { Router } from '@angular/router';
 import { Product } from '../models/product';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./productdetail.component.css']
 })
 export class ProductdetailComponent implements OnInit{
-  constructor(private router: Router,private route: ActivatedRoute,public serv:ApiServicesService){}
+  constructor(private router: Router,private route: ActivatedRoute,public serv:ApiServicesService,private toastr:ToastrService){}
   pro:Product[]=[];
   item:any={};
   qty:number=1;
@@ -60,6 +61,14 @@ export class ProductdetailComponent implements OnInit{
       this.result.pricePerProduct+=(this.qty*price);
     }
     alert('Product Added to the Cart')
+  }
+
+  showLogoutSuccess(){
+    this.toastr.success("Logged Out!");
+  }
+
+  showLogoutError(){
+    this.toastr.error("Logout Error");
   }
 
 }
