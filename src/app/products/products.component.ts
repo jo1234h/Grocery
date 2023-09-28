@@ -10,33 +10,29 @@ import { Category } from '../models/category';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit{
+
+export class ProductsComponent implements OnInit
+{
   constructor(private router: Router,public serv:ApiServicesService,private route:ActivatedRoute){}
   pro:Product[];
   Id:number;
-  
+  selectedCategoryId: number;
 
   ngOnInit(): void 
   {
-    console.log('active')
     this.serv.GetProductCategories();  
   }  
 
-  selectedCategoryId: number;
+  onProductClick(categoryId: number) 
+  {
+    this.selectedCategoryId = categoryId;
+    const productsByCategory = this.serv.GetProductByCategory(categoryId);
+  }
 
-
-onProductClick(categoryId: number) {
-  this.selectedCategoryId = categoryId;
-
-  const productsByCategory = this.serv.GetProductByCategory(categoryId);
-}
-
-
-isCategorySelected(categoryId: number): boolean {
-  return this.selectedCategoryId === categoryId;
-}
-
-
+  isCategorySelected(categoryId: number): boolean 
+  {
+    return this.selectedCategoryId === categoryId;
+  }
 }
 
 

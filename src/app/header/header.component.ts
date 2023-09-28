@@ -9,19 +9,26 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit{
-  name: string = '';
-  searchForm:any;
 
-  constructor(private formbulider: FormBuilder,private router:Router) {}
-  ngOnInit() {    
-    this.searchForm = this.formbulider.group({    
-      productName: ['', [Validators.required]],     
+export class HeaderComponent implements OnInit 
+{
+  name: string = '';
+  searchForm: any;
+
+  constructor(private formbulider: FormBuilder, private router: Router) { }
+
+  ngOnInit() 
+  {
+    this.searchForm = this.formbulider.group
+    ({
+      productName: ['', [Validators.required]],
       price: []
-    });    
-  }   
-  onFormSubmit() {
-    const searchData = this.searchForm.value;    
-    this.router.navigate(['search/',{productName:searchData.productName,price:searchData.price}]);
-}
+    });
+  }
+
+  onFormSubmit() 
+  {
+    const searchData = this.searchForm.value;
+    this.router.navigate(['search/', { productName: searchData.productName, price: searchData.price }]);
+  }
 }

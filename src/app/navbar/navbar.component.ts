@@ -13,53 +13,68 @@ import { Product } from '../models/product';
   styleUrls: ['./navbar.component.css']
 })
 
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit 
+{
   @ViewChild('orderPlaced') orderplaced;
-
   totalAmount: number = 0;
+
   constructor(private jwtHelper: JwtHelperService, private serv: ApiServicesService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
     this.serv.isUserAuthenticated();
   }
-  checkItemsInCart() {
+
+  checkItemsInCart() 
+  {
     return this.serv.orderedProducts.length;
   }
 
-  getUserName() {
+  getUserName() 
+  {
     return (localStorage.getItem("UserName") != null) ? localStorage.getItem("UserName") : '';
   }
 
-  getEmailId() {
+  getEmailId() 
+  {
     return (localStorage.getItem("EmailId") != null) ? 'Email Addres :' + localStorage.getItem("EmailId") : '';
   }
-  getPhone() {
+
+  getPhone() 
+  {
     return (localStorage.getItem("Phone") != null) ? 'Phone Number :' + localStorage.getItem("Phone") : '';
   }
 
-  getOrderList() {
+  getOrderList() 
+  {
     return this.serv.orderedProducts;
   }
 
-  calculateTotal() {
+  calculateTotal() 
+  {
     this.totalAmount = 45;
-    this.getOrderList().forEach(element => {
+    this.getOrderList().forEach(element => 
+    {
       this.totalAmount += element.pricePerProduct;
     });
     return this.totalAmount;
   }
 
 
-  checkUserActive(): boolean {
-    if (this.serv.isUserAuthenticated()) {
+  checkUserActive(): boolean 
+  {
+    if (this.serv.isUserAuthenticated()) 
+    {
       return true;
     }
-    else {
+    else 
+    {
       return false;
     }
   }
 
-  logout() {
+  logout() 
+  {
     localStorage.removeItem('SecurityToken');
     localStorage.removeItem('UserName');
     localStorage.removeItem('EmailId');
@@ -67,20 +82,24 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  isActive(route: string) {
+  isActive(route: string) 
+  {
     return this.router.url.includes(route);
   }
 
-  removeItem(id: any) {
+  removeItem(id: any) 
+  {
     this.serv.orderedProducts = this.serv.orderedProducts.filter(item => item.productId !== id);
   }
 
-  PlaceOrder() {
-    this.serv.orderedProducts.forEach(element => {
+  PlaceOrder() 
+  {
+    this.serv.orderedProducts.forEach(element => 
+    {
       this.serv.singleData = this.serv.productList.find(item => item.Id == element.productId);
       this.serv.singleData.UnitsInStock -= element.quantity;
-      console.log(this.serv.singleData.UnitsInStock);
-      this.serv.EditProducts(this.serv.singleData).subscribe(res => {
+      this.serv.EditProducts(this.serv.singleData).subscribe(res => 
+      {
         this.serv.GetAllCategory();
       });
     });
@@ -89,13 +108,14 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  isAdmin() {
-    if (this.serv.isAdmin() === "Admin") {
+  isAdmin() 
+  {
+    if (this.serv.isAdmin() === "Admin") 
+    {
       return true;
     }
     return false;
   }
-
 }
 
 
