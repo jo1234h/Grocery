@@ -16,6 +16,8 @@ import { Product } from '../models/product';
 export class NavbarComponent implements OnInit 
 {
   @ViewChild('orderPlaced') orderplaced;
+  @ViewChild('logoutSuccess') logoutbutton;
+  @ViewChild('profile') profilebutton;
   totalAmount: number = 0;
 
   constructor(private jwtHelper: JwtHelperService, private serv: ApiServicesService, private router: Router) { }
@@ -79,6 +81,8 @@ export class NavbarComponent implements OnInit
     localStorage.removeItem('UserName');
     localStorage.removeItem('EmailId');
     localStorage.removeItem('Phone');
+    this.profilebutton.nativeElement.click();
+    this.logoutbutton.nativeElement.click();
     this.router.navigate(['/']);
   }
 

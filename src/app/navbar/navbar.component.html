@@ -63,7 +63,7 @@
 
 
 
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+<div class="modal fade"  id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -90,7 +90,7 @@
                 <span class="intro-1">{{getPhone()}}</span>
               </div>
               <div class="mt-4 mb-5">
-                <button type="button" class="btn btn-danger btn-outline-danger text-white close" data-bs-dismiss="modal"
+                <button type="button"  #profile class="btn btn-danger btn-outline-danger text-white close" data-bs-dismiss="modal"
                   (click)="logout()">Logout</button>
               </div>
             </div>
@@ -196,3 +196,23 @@
     </div>
 
   </div>
+
+  <!-- Modal HTML -->
+<button hidden class="btn btn-primary" #logoutSuccess data-bs-toggle="modal" data-bs-target="#my-modal">Authentication</button>
+<div id="my-modal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>
+				<span type="button" class="close text-white text-light" data-bs-dismiss="modal" aria-hidden="true">&times;</span>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Logged In!</h4>	
+				<p>You have logged in successfully.</p>
+				<button class="btn btn-success" data-bs-dismiss="modal"><span>Start Shopping</span> <i class="material-icons">&#xE5C8;</i></button>
+			</div>
+		</div>
+	</div>
+</div>     
