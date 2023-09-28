@@ -10,7 +10,8 @@ import { ApiServicesService } from '../Shared/api-services.service';
   styleUrls: ['./register.component.css']
 })
 
-export class RegisterComponent implements OnInit {    
+export class RegisterComponent implements OnInit 
+{    
   data = false;    
   UserForm: any;    
   message:string;   
@@ -19,8 +20,10 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formbulider: FormBuilder,private loginService:ApiServicesService,private router:Router) { }    
     
-  ngOnInit() {    
-    this.UserForm = this.formbulider.group({    
+  ngOnInit() 
+  {    
+    this.UserForm = this.formbulider.group
+    ({    
       FirstName: ['', [Validators.required]],    
       LastName: ['', [Validators.required]],  
       Gender:['',[Validators.required]],
@@ -30,26 +33,29 @@ export class RegisterComponent implements OnInit {
       Password: ['', [Validators.required]], 
     });    
   }    
-   onFormSubmit()    
+
+  onFormSubmit()    
   {    
     const user = this.UserForm.value;    
     this.CreateUser(user);    
   }    
+
   CreateUser(register:Register)    
   {    
-    this.loginService.CreateUser(register).subscribe(  {  
-     next:()=>    
-     {    
-       this.data = true;    
-       this.message = 'Data saved Successfully';    
-       this.UserForm.reset();  
-       this.modalbutton.nativeElement.click();  
-       this.router.navigate(['login'])
-     },
-     error:()=> 
-     {
-      this.invalidbutton.nativeElement.click(); 
-     }
+    this.loginService.CreateUser(register).subscribe
+    ({  
+      next:()=>    
+      {    
+        this.data = true;    
+        this.message = 'Data saved Successfully';    
+        this.UserForm.reset();  
+        this.modalbutton.nativeElement.click();  
+        this.router.navigate(['login'])
+      },
+      error:()=> 
+      {
+        this.invalidbutton.nativeElement.click(); 
+      }
     });  
   }    
 }   

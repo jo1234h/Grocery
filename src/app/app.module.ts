@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
@@ -25,8 +25,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin-guard.guard';
 import { ToastrModule } from 'ngx-toastr';
 
-export function tokenGetter() { 
-  return localStorage.getItem("jwt"); 
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
 }
 
 
@@ -65,7 +65,8 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [AuthGuard,AdminGuard],
+  providers: [AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
