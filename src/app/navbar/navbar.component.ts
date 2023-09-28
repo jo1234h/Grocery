@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { OrderSummary } from '../models/order-summary';
 import { find } from 'rxjs';
 import { Product } from '../models/product';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit
   //@ViewChild('profile') profilebutton;
   totalAmount: number = 0;
 
-  constructor(private jwtHelper: JwtHelperService, private serv: ApiServicesService, private router: Router) { }
+  constructor(private jwtHelper: JwtHelperService, private serv: ApiServicesService, private router: Router,private toastr:ToastrService) { }
 
   ngOnInit(): void 
   {
@@ -83,7 +84,7 @@ export class NavbarComponent implements OnInit
     localStorage.removeItem('UserName');
     localStorage.removeItem('EmailId');
     localStorage.removeItem('Phone');
-    
+    this.showLogoutSuccess();
     this.router.navigate(['/']);
   }
 
@@ -121,6 +122,14 @@ export class NavbarComponent implements OnInit
       return true;
     }
     return false;
+  }
+
+  showLogoutSuccess(){
+    this.toastr.success("Logged Out!");
+  }
+
+  showLogoutError(){
+    this.toastr.error("Logout Error");
   }
 }
 
