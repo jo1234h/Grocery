@@ -125,7 +125,7 @@ export class NavbarComponent implements OnInit
   }
 
   showLogoutSuccess(){
-    this.toastr.success("Logged Out!");
+    this.toastr.error("Logged Out!");
   }
 
   showLogoutError(){

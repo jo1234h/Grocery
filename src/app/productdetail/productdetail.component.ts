@@ -63,12 +63,4 @@ export class ProductdetailComponent implements OnInit{
     alert('Product Added to the Cart')
   }
 
-  showLogoutSuccess(){
-    this.toastr.success("Logged Out!");
-  }
-
-  showLogoutError(){
-    this.toastr.error("Logout Error");
-  }
-
 }
