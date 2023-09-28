@@ -109,6 +109,7 @@ export class NavbarComponent implements OnInit
     });
     this.serv.orderedProducts = [];
     this.orderplaced.nativeElement.click();
+    alert('Your order has been placed.\nPay the amount at the time of delivery');  
     this.router.navigate(['']);
   }
 
